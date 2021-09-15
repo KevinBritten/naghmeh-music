@@ -38,6 +38,8 @@ export default {};
 
 <style scoped>
 .site-footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   padding: 10px 0;
   background-color: var(--footer-bg);

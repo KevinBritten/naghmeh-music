@@ -18,21 +18,23 @@ export default {
   methods: {
     toggleMenu() {
       this.$emit("toggle-menu");
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped>
 .site-header {
-  max-width: 100%;
-  height: 50px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
   background-color: black;
-   display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0 10px;
+  padding: 10px 10px;
   &__logo {
     height: 100%;
   }
@@ -77,5 +79,6 @@ export default {
         bottom: 0;
       }
     }
-} }
+  }
+}
 </style>
