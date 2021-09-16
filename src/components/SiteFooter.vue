@@ -44,7 +44,7 @@ export default {};
   width: 100%;
   height: 60px;
   padding: 10px 0;
-  background-color: var(--footer-bg);
+  background-color: var(--c-footer-bg);
   z-index: 101;
 
   &__social-icons {

@@ -1,5 +1,5 @@
 <template>
-  <div class="about-page">
+  <div>
     <p>
       Naghmeh Shafiei is an Iranian-Canadian singer/songwriter and the front
       woman of the Montreal based post-modern rock band Naghmeh and the Southern
