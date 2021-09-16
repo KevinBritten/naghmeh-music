@@ -16,7 +16,7 @@ export default {};
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 60px;
+  width: 50px;
   z-index: 100;
 }
 </style>

@@ -1,9 +1,10 @@
 <template>
-  <div
-    class="site-header__hamburger-menu"
-    :class="{ 'site-header__hamburger-menu--clicked': menuIsOpen }"
-    @click="toggleMenu"
-  ></div>
+  <div class="hamburger-container" @click="toggleMenu">
+    <div
+      class="hamburger-menu"
+      :class="{ 'hamburger-menu--clicked': menuIsOpen }"
+    ></div>
+  </div>
 </template>
 
 <script>
@@ -18,60 +19,54 @@ export default {
 </script>
 
 <style scoped>
-.site-header {
+.hamburger-container {
   position: fixed;
-  top: 0;
-  width: 100%;
-  height: 70px;
-  background-color: black;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 10px;
-  &__logo {
+  right: 20px;
+  top: 10px;
+  z-index: 100;
+  height: 40px;
+  width: 40px;
+}
+.hamburger-menu {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 2px;
+  right: 0;
+  background: #fff;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
     height: 100%;
+    background: inherit;
+    left: 0;
+    transform-origin: center center;
+    transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease;
   }
-  &__hamburger-menu {
-    position: relative;
-    width: 40px;
-    height: 2px;
-    background: #fff;
+
+  &:before {
+    top: -10px;
+  }
+
+  &:after {
+    bottom: -10px;
+  }
+  &--clicked {
+    background: transparent;
 
     &:before,
     &:after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: inherit;
-      left: 0;
-      transform-origin: center center;
-      transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease;
+      background: white;
     }
-
     &:before {
-      top: -10px;
+      transform: rotate(45deg);
+      top: 0;
     }
-
     &:after {
-      bottom: -10px;
-    }
-    &--clicked {
-      background: transparent;
-
-      &:before,
-      &:after {
-        background: white;
-      }
-      &:before {
-        transform: rotate(45deg);
-        top: 0;
-      }
-      &:after {
-        transform: rotate(-45deg);
-        bottom: 0;
-      }
+      transform: rotate(-45deg);
+      bottom: 0;
     }
   }
 }

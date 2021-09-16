@@ -5,7 +5,12 @@
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
     />
-    <site-header class="site-header" :menu-is-open="menuIsOpen"></site-header>
+    <site-header
+      class="site-header"
+      :menu-is-open="menuIsOpen"
+      v-show="menuIsOpen"
+      @close-menu="menuIsOpen = false"
+    ></site-header>
     <view-display> </view-display>
   </div>
 </template>

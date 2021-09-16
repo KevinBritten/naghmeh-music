@@ -1,10 +1,30 @@
 <template>
-  <div class="site-header"></div>
+  <div class="site-header">
+    <div class="site-header__link-container" @click="closeMenu">
+      <div v-for="route in routes" :key="route.path">
+        <router-link :to="route.path ? route.path : '/'">{{
+          route.name
+        }}</router-link>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
 export default {
   props: ["menuIsOpen"],
+  computed: {
+    routes() {
+      return this.$router.getRoutes().filter((r) => {
+        return r.name;
+      });
+    },
+  },
+  methods: {
+    closeMenu() {
+      this.$emit("close-menu");
+    },
+  },
 };
 </script>
 
@@ -18,6 +38,24 @@ export default {
   left: 0;
   background-color: black;
   z-index: 50;
+  color: white;
+  &__link-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+a {
+  display: block;
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
 }
 
 @include atDesktop {

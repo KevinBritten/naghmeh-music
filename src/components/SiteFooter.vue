@@ -43,16 +43,14 @@ export default {};
   width: 100%;
   padding: 10px 0;
   background-color: var(--footer-bg);
+  z-index: 101;
   &__social-icons {
     display: flex;
     justify-content: space-around;
-    /* height: 100%; */
-    /* width: 100%; */
-    /* position: relative; */
+
     a {
       width: 10%;
       margin: auto 0;
-      /* max-height: 100%; */
     }
     img {
       width: 100%;
