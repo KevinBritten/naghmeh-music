@@ -30,7 +30,7 @@
       ref="photoContainer"
       :class="{ 'photo-page__photo-container--fullscreen': fullscreen }"
     >
-      <img
+      <!-- <img
         class="photo-page__image"
         :class="{
           'photo-page__image--fullscreen': fullscreen,
@@ -39,22 +39,30 @@
         v-lazy="`${sourceFolder}${photo}`"
         :key="photo"
         :alt="i"
-      />
+      /> -->
     </div>
   </div>
 </template>
 
 <script>
-import PhotoList from "../data/PhotoList";
+import sanity from "../sanity";
+
+const query = `*[_type == "photos"]`;
+
 export default {
   data() {
     return {
       sourceFolder: "dist/src/assets/images/photos/",
-      photoList: PhotoList,
       fullscreen: false,
+      photos: [],
     };
   },
-
+  created() {
+    this.fetchData().then((payload) => {
+      this.photos = payload;
+    });
+    // await this.setPhotos();
+  },
   methods: {
     fullscreenToggle() {
       const fullscreen = this.fullscreen;
@@ -99,6 +107,18 @@ export default {
       setTimeout(() => {
         clearInterval(waitForClass);
       }, 300);
+    },
+    fetchData() {
+      this.error = this.post = null;
+
+      return sanity.fetch(query).then(
+        (photos) => {
+          return photos;
+        },
+        (error) => {
+          this.error = error;
+        }
+      );
     },
   },
 };
