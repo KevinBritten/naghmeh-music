@@ -1,6 +1,5 @@
 <template>
   <div class="about-page">
-    <scroll-area :title="'About'">
       <p>
         Naghmeh Shafiei is an Iranian-Canadian singer/songwriter and the front
         woman of the Montreal based post-modern rock band Naghmeh and the
@@ -23,7 +22,7 @@
         is to transform the listener’s internal turmoil into a healing,
         whimsical dance.
       </p>
-      <p class="about-page__last-paragraph">
+      <p>
         She holds a Master of Arts in Psychology and has worked as a front
         woman, song writer, event producer, performer, and session musician.
         She’s a fierce entrepreneur and has worked hard her entire life to rise
@@ -39,17 +38,15 @@
 <script>
 </script>
 <style scoped>
-* {
-}
-
 p {
   padding: 15px 0 10px 0;
+  margin-top: 0;
 }
 
 .about-page {
   height: 100%;
-  &__last-paragraph {
-    padding: 10px 0 150px 0;
-  }
+  background-color: var(--c-page-background);
+  padding: 10px 10px;
+  margin-top: 50px;
 }
 </style>

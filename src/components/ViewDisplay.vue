@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="view-display">
     <img src="../assets/11.+Naghmeh+Portrait+Illuminated.jpg" />
     <router-view />
     <site-footer />
@@ -15,6 +15,9 @@ export default {
 </script>
 
 <style scoped>
+.view-display {
+  height: 100%;
+}
 img {
   position: fixed;
   top: 0;

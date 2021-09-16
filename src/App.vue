@@ -41,8 +41,12 @@ export default {
 :root {
   --dark-blue-bg: #010122;
   --footer-bg: #4c4d64;
+  --c-page-background: rgba(166, 166, 166, 0.9);
 }
 
+#app {
+  height: 100%;
+}
 .center-content {
   flex: 1 1 0;
   position: relative;
