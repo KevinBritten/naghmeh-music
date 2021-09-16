@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="home__header-container">
+    <!-- <div class="home__header-container">
       <h1 class="home__header">
         <span class="home__header-before"
           ><span
@@ -23,24 +23,28 @@
         ><span class="home__header-anchor-letter">H</span
         ><span class="home__header-after">AFIEI</span>
       </h1>
-    </div>
+    </div> -->
+    <site-title />
     <p>new single ‘A Great Song’<br/> availble now on Spotify</br> and Youtube</p>
   </div>
 </template>
 
 <script>
-export default {};
+import SiteTitle from "../components/SiteTitle.vue";
+export default {
+  components: { SiteTitle },
+};
 </script>
 
 <style scoped>
 .home {
   position: relative;
-  padding-top: 120px;
+  /* padding-top: 120px; */
   color: white;
   p {
     padding-left: 10px;
   }
-  &__header {
+  /* &__header {
     position: absolute;
     left: 42%;
     top: 0;
@@ -79,10 +83,6 @@ export default {};
         letter-spacing: -0.7rem;
       }
     }
-  }
-}
-#first-h {
-  position: relative;
-  display: block;
+  } */
 }
 </style>

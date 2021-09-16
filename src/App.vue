@@ -46,6 +46,7 @@ export default {
 
 #app {
   height: 100%;
+  padding: 100px 0 60px;
 }
 .center-content {
   flex: 1 1 0;

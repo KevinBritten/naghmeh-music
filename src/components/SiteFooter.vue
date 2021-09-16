@@ -41,6 +41,7 @@ export default {};
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 60px;
   padding: 10px 0;
   background-color: var(--footer-bg);
   z-index: 101;
