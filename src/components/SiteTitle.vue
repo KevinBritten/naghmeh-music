@@ -30,6 +30,7 @@ export default {};
   position: absolute;
   left: 42%;
   top: 0;
+  color: white;
 
   &__title-container {
     position: relative;

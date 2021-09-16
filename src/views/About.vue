@@ -1,6 +1,5 @@
 <template>
   <div class="about-page">
-    <h2>ABOUT</h2>
     <p>
       Naghmeh Shafiei is an Iranian-Canadian singer/songwriter and the front
       woman of the Montreal based post-modern rock band Naghmeh and the Southern
@@ -36,30 +35,8 @@
 <script>
 </script>
 <style scoped>
-h2 {
-  text-align: center;
-}
-
-h2::before,
-h2::after {
-  content: "";
-  height: 0.7rem;
-  width: 0.7rem;
-  margin: 0 1rem 0.2rem;
-  background-color: black;
-  border-radius: 50%;
-  display: inline-block;
-}
-
 p {
   padding: 15px 0 10px 0;
   margin-top: 0;
-}
-
-.about-page {
-  height: 100%;
-  background-color: var(--c-page-background);
-  padding: 10px 10px;
-  overflow: scroll;
 }
 </style>

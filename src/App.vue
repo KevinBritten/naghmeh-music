@@ -1,6 +1,11 @@
 <template>
   <div id="app">
+    <img src="./assets/11.+Naghmeh+Portrait+Illuminated.jpg" />
+
     <header-logo />
+    <div class="site-title-container">
+      <site-title v-show="$route.path !== '/'" />
+    </div>
     <hamburger
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
@@ -19,6 +24,7 @@
 import Hamburger from "./components/Hamburger.vue";
 import HeaderLogo from "./components/HeaderLogo.vue";
 import SiteHeader from "./components/SiteHeader.vue";
+import SiteTitle from "./components/SiteTitle.vue";
 import ViewDisplay from "./components/ViewDisplay.vue";
 
 export default {
@@ -33,20 +39,23 @@ export default {
     ViewDisplay,
     Hamburger,
     HeaderLogo,
+    SiteTitle,
   },
 };
 </script>
 
-<style>
-:root {
-  --dark-blue-bg: #010122;
-  --footer-bg: #4c4d64;
-  --c-page-background: rgba(166, 166, 166, 0.9);
-}
-
+<style scoped>
 #app {
   height: 100%;
-  padding: 100px 0 60px;
+  padding: 70px 0 60px;
+}
+img {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
 }
 .center-content {
   flex: 1 1 0;
@@ -57,5 +66,13 @@ export default {
   height: 100%;
   width: 100%;
   flex-direction: column;
+}
+.site-title-container {
+  position: fixed;
+  top: 15px;
+  left: 110px;
+  transform: scale(0.3);
+  transform-origin: top left;
+  z-index: 101;
 }
 </style>

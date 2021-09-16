@@ -39,7 +39,7 @@ export default {
 <style scoped>
 .home {
   position: relative;
-  /* padding-top: 120px; */
+  padding-top: 20px;
   color: white;
   p {
     padding-left: 10px;
