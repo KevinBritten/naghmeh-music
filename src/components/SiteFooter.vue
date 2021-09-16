@@ -39,12 +39,14 @@ export default {};
 <style scoped>
 .site-footer {
   position: fixed;
+  left: 0;
   bottom: 0;
   width: 100%;
   height: 60px;
   padding: 10px 0;
   background-color: var(--footer-bg);
   z-index: 101;
+
   &__social-icons {
     display: flex;
     justify-content: space-around;
