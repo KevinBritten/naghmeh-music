@@ -1,29 +1,33 @@
 <template>
   <div id="app">
-    <site-header
-      class="site-header"
+    <header-logo />
+    <hamburger
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
-    ></site-header>
+    />
+    <site-header class="site-header" :menu-is-open="menuIsOpen"></site-header>
     <view-display> </view-display>
   </div>
 </template>
 
 <script>
+import Hamburger from "./components/Hamburger.vue";
+import HeaderLogo from "./components/HeaderLogo.vue";
 import SiteHeader from "./components/SiteHeader.vue";
-import MobileMenu from "./components/MobileMenu.vue";
 import ViewDisplay from "./components/ViewDisplay.vue";
+
 export default {
   name: "app",
   data() {
     return {
-      menuIsOpened: false,
+      menuIsOpen: false,
     };
   },
   components: {
     SiteHeader,
-    MobileMenu,
     ViewDisplay,
+    Hamburger,
+    HeaderLogo,
   },
 };
 </script>

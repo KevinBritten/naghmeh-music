@@ -24,7 +24,7 @@
         ><span class="home__header-after">AFIEI</span>
       </h1>
     </div>
-    <p>new single ‘A Great Song’ availble now on Spotify and Youtube</p>
+    <p>new single ‘A Great Song’<br/> availble now on Spotify</br> and Youtube</p>
   </div>
 </template>
 
@@ -35,11 +35,10 @@ export default {};
 <style scoped>
 .home {
   position: relative;
-  padding-top: 100px;
+  padding-top: 120px;
   color: white;
   p {
-    width: 100%;
-    padding: 0 50% 0 10px;
+    padding-left: 10px;
   }
   &__header {
     position: absolute;
