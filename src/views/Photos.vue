@@ -30,29 +30,40 @@
       ref="photoContainer"
       :class="{ 'photo-page__photo-container--fullscreen': fullscreen }"
     >
-      <!-- <img
+      <img
         class="photo-page__image"
         :class="{
           'photo-page__image--fullscreen': fullscreen,
         }"
-        v-for="(photo, i) in photoList"
-        v-lazy="`${sourceFolder}${photo}`"
-        :key="photo"
-        :alt="i"
-      /> -->
+        v-for="photo in photos"
+        :key="photo.name"
+        :alt="photo.name"
+        :srcset="`${imageUrlFor(photo.image).width(300)} 300w,
+                    ${imageUrlFor(photo.image).width(600)} 600w,
+                    ${imageUrlFor(photo.image).width(800)} 800w,          
+                    ${imageUrlFor(photo.image).width(1200)} 1200w,          
+                    ${imageUrlFor(photo.image).width(1600)} 1600w,          
+                    ${imageUrlFor(photo.image).width(2000)} 2000w,          
+           `"
+        sizes="(min-width: 767px) 50vw,
+           (min-width: 991px) 33vw,
+           100vw,"
+        :src="`${imageUrlFor(photo.image)}`"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import sanity from "../sanity";
+import imageUrlBuilder from "@sanity/image-url";
+const imageBuilder = imageUrlBuilder(sanity);
 
 const query = `*[_type == "photos"]`;
 
 export default {
   data() {
     return {
-      sourceFolder: "dist/src/assets/images/photos/",
       fullscreen: false,
       photos: [],
     };
@@ -64,6 +75,9 @@ export default {
     // await this.setPhotos();
   },
   methods: {
+    imageUrlFor(source) {
+      return imageBuilder.image(source);
+    },
     fullscreenToggle() {
       const fullscreen = this.fullscreen;
       const photoContainer = this.$refs.photoContainer;
@@ -130,7 +144,7 @@ export default {
   &__fullscreen-icon-container {
     position: absolute;
     right: 2px;
-    top: 56px;
+    bottom: 56px;
     font-size: 40px;
     width: 40px;
     color: white;
@@ -143,8 +157,8 @@ export default {
     } */
     &--fullscreen {
       position: fixed;
-      top: 15px;
-      right: 15px;
+      bottom: 15px;
+      right: 10px;
       transform: scale(1.5);
     }
   }
@@ -166,7 +180,7 @@ export default {
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 100;
+      z-index: 190;
       background-color: rgb(var(--main-bg-color));
     }
   }
