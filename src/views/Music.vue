@@ -1,32 +1,53 @@
 <template>
   <div class="music-page">
-    <scroll-area :title="'Music'">
-      <div class="music-page__spotify-embed">
-        <div class="music-page__single-embed-container">
-          <h2>Mount Shasta</h2>
-          <iframe
-            src="https://open.spotify.com/embed/artist/0vBnUPIvZVYs1EIW5DyfCb"
-            allowfullscreen
-            allow="encrypted-media"
-          ></iframe>
-        </div>
-        <div class="music-page__single-embed-container">
-          <h2>La Frontera</h2>
-          <iframe
-            src="https://open.spotify.com/embed/track/72a5G5O8nntwovTGojP7Mo"
-            width="300"
-            height="380"
-            frameborder="0"
-            allowtransparency="true"
-            allow="encrypted-media"
-          ></iframe>
-        </div></div
-    ></scroll-area>
+    <div class="music-page__spotify-embed">
+      <div
+        class="music-page__single-embed-container"
+        v-for="spotifyPlaylist in spotifyPlaylists"
+        :key="spotifyPlaylist.name"
+      >
+        <h2>{{ spotifyPlaylist.name }}</h2>
+        <iframe
+          :src="spotifyPlaylist"
+          allowfullscreen
+          allow="encrypted-media"
+        ></iframe>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+import sanity from "../sanity";
+
+const query = `*[_type == "spotifyPlaylists"]`;
+
+export default {
+  data() {
+    return {
+      spotifyPlaylists: [],
+    };
+  },
+  created() {
+    this.fetchData().then((payload) => {
+      this.spotifyPlaylists = payload;
+    });
+  },
+  methods: {
+    fetchData() {
+      this.error = this.post = null;
+
+      return sanity.fetch(query).then(
+        (spotifyPlaylists) => {
+          return spotifyPlaylists;
+        },
+        (error) => {
+          this.error = error;
+        }
+      );
+    },
+  },
+};
 </script>
 
 <style scoped>

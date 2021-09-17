@@ -38,7 +38,7 @@
         v-for="photo in photos"
         :key="photo.name"
         :alt="photo.name"
-        :srcset="`${imageUrlFor(photo.image).width(300)} 300w,
+        :data-srcset="`${imageUrlFor(photo.image).width(300)} 300w,
                     ${imageUrlFor(photo.image).width(600)} 600w,
                     ${imageUrlFor(photo.image).width(800)} 800w,          
                     ${imageUrlFor(photo.image).width(1200)} 1200w,          
@@ -48,7 +48,7 @@
         sizes="(min-width: 767px) 50vw,
            (min-width: 991px) 33vw,
            100vw,"
-        :src="`${imageUrlFor(photo.image)}`"
+        v-lazy="`${imageUrlFor(photo.image)}`"
       />
     </div>
   </div>
