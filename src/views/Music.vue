@@ -8,7 +8,7 @@
       >
         <h2>{{ spotifyPlaylist.name }}</h2>
         <iframe
-          :src="spotifyPlaylist"
+          :src="spotifyPlaylist.url"
           allowfullscreen
           allow="encrypted-media"
         ></iframe>
