@@ -148,7 +148,7 @@ export default {
     font-size: 40px;
     width: 40px;
     color: white;
-    z-index: 200;
+    z-index: 49;
     transition: transform 300ms;
     transform: scale(1);
 
@@ -157,7 +157,7 @@ export default {
     } */
     &--fullscreen {
       position: fixed;
-      bottom: 15px;
+      /* top: 15px; */
       right: 10px;
       transform: scale(1.5);
     }
@@ -180,7 +180,7 @@ export default {
       right: 0;
       bottom: 0;
       left: 0;
-      z-index: 190;
+      z-index: 48;
       background-color: rgb(var(--main-bg-color));
     }
   }
