@@ -2,7 +2,7 @@
   <div id="app">
     <img src="./assets/11.+Naghmeh+Portrait+Illuminated.jpg" />
 
-    <header-logo />
+    <header-logo @close-menu="menuIsOpen = false"></header-logo>
     <div class="site-title-container">
       <site-title v-show="$route.path !== '/'" />
     </div>

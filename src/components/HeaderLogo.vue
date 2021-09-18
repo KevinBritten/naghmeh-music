@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="$emit('close-menu')">
     <router-link :to="`/`">
       <img
         class="header-logo"
