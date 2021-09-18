@@ -56,6 +56,7 @@ img {
   bottom: 0;
   left: 0;
   z-index: -10;
+  height: 100%;
 }
 .center-content {
   flex: 1 1 0;

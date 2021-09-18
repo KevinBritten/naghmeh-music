@@ -4,7 +4,7 @@ import Music from "./views/Music.vue";
 import Merch from "./views/Merch.vue";
 import Videos from "./views/Videos.vue";
 import Photos from "./views/Photos.vue";
-// import Contact from "./views/Contact.vue";
+import Contact from "./views/Contact.vue";
 
 export const routes = [
   { path: "/", name: "home", component: Home },
@@ -13,6 +13,6 @@ export const routes = [
   { path: "/music", name: "music", component: Music },
   { path: "/merch", name: "merch", component: Merch },
   { path: "/videos", name: "videos", component: Videos },
-  { path: "/photos", name: "photos", component: Photos }
-  // { path: "/contact", name: "contact", component: Contact }
+  { path: "/photos", name: "photos", component: Photos },
+  { path: "/contact", name: "contact", component: Contact }
 ];
