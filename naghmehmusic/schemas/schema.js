@@ -4,6 +4,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
+import videos from "./videos";
 import photos from "./photos";
 import spotifyPlaylists from "./spotifyPlaylists";
 
@@ -14,6 +15,7 @@ export default createSchema({
   // Then proceed to concatenate our document type
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
+    videos,
     photos,
     spotifyPlaylists
     /* Your types here! */

@@ -1,9 +1,10 @@
 <template>
   <div>
-    <img
-      class="header-logo"
-      src="../assets/naghmeh-old-logo-temp-resized.png"
-    />
+    <router-link :to="`/`">
+      <img
+        class="header-logo"
+        src="../assets/naghmeh-old-logo-temp-resized.png"
+    /></router-link>
   </div>
 </template>
 
