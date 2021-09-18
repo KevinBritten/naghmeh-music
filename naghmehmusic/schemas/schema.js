@@ -7,6 +7,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import videos from "./videos";
 import photos from "./photos";
 import spotifyPlaylists from "./spotifyPlaylists";
+import products from "./products";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,7 +18,8 @@ export default createSchema({
   types: schemaTypes.concat([
     videos,
     photos,
-    spotifyPlaylists
+    spotifyPlaylists,
+    products
     /* Your types here! */
   ])
 });
