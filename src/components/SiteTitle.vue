@@ -25,7 +25,7 @@
 export default {};
 </script>
 
-<style scoped>
+<style lang='scss'scoped>
 .site-title {
   position: absolute;
   left: 42%;
@@ -35,6 +35,8 @@ export default {};
   &__title-container {
     position: relative;
     height: 10rem;
+    // max-width: 100%;
+    // transform: scale(0.8);
   }
   &__anchor-letter {
     position: relative;

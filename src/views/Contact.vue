@@ -12,10 +12,6 @@ export default {};
 </script>
 
 <style scoped>
-h1 {
-  width: 100%;
-  text-align: center;
-}
 p {
   margin-top: 50px;
   text-align: center;

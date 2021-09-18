@@ -48,6 +48,7 @@ export default {
 #app {
   height: 100%;
   padding: 70px 0 60px;
+  overflow: hidden;
 }
 img {
   position: fixed;
@@ -57,6 +58,10 @@ img {
   left: 0;
   z-index: -10;
   height: 100%;
+  width: 100%;
+  object-fit: contain;
+  object-position: right;
+  background-color: var(--c-dark-blue);
 }
 .center-content {
   flex: 1 1 0;

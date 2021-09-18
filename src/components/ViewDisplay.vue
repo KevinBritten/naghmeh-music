@@ -25,7 +25,6 @@ export default {
   overflow: scroll;
   &--home {
     background-color: transparent;
-    overflow: visible;
   }
 }
 h2 {

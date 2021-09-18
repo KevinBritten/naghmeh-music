@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <site-title />
-    <p>new single ‘A Great Song’<br/> availble now on Spotify</br> and Youtube</p>
+    <p>new single ‘A Great Song’<br/> available now on Spotify</br> and Youtube</p>
   </div>
 </template>
 
