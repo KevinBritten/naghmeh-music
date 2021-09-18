@@ -62,6 +62,8 @@ module.exports = {
   },
   devServer: {
     // host: "192.168.0.122",
+    host: "0.0.0.0",
+    useLocalIp: true,
     port: 8080,
     disableHostCheck: true,
     historyApiFallback: true,
