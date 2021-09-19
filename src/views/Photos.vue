@@ -1,14 +1,14 @@
 <template>
-  <div class="photo-page">
+  <div>
     <div
-      class="photo-page__fullscreen-icon-container"
+      class="fullscreen-icon-container"
       :class="{
-        'photo-page__fullscreen-icon-container--fullscreen': fullscreen,
+        'fullscreen-icon-container--fullscreen': fullscreen,
       }"
       @click="fullscreenToggle()"
     >
       <svg
-        class="photo-page__fullscreen-icon"
+        class="fullscreen-icon"
         id="i-fullscreen"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 32 32"
@@ -25,16 +25,16 @@
         />
       </svg>
     </div>
-    <div
-      class="photo-page__photo-container"
+    <!-- <div
+      class="photo-container"
       ref="photoContainer"
-      :class="{ 'photo-page__photo-container--fullscreen': fullscreen }"
+      :class="{ 'photo-container--fullscreen': fullscreen }"
+    > -->
+    <div
+      class="photo-container"
+      :class="{ 'photo-container--fullscreen': fullscreen }"
     >
       <img
-        class="photo-page__image"
-        :class="{
-          'photo-page__image--fullscreen': fullscreen,
-        }"
         v-for="photo in photos"
         :key="photo.name"
         :alt="photo.name"
@@ -72,56 +72,54 @@ export default {
     this.fetchData().then((payload) => {
       this.photos = payload;
     });
-    // await this.setPhotos();
   },
   methods: {
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
     fullscreenToggle() {
-      const fullscreen = this.fullscreen;
-      const photoContainer = this.$refs.photoContainer;
-      const currentContainer = fullscreen
-        ? photoContainer
-        : photoContainer.parentNode;
-      const targetContainer = fullscreen
-        ? photoContainer.parentNode
-        : photoContainer;
-      const scrollSectionStart = currentContainer.getBoundingClientRect().y;
-      // const firstVisibleImage = Array.from(photoContainer.children).find(
-      //   child => {
-      //     const childBoundingRect = child.getBoundingClientRect();
-      //     return (
-      //       childBoundingRect.y + childBoundingRect.height > scrollSectionStart
-      //     );
-      //   }
-      // );
-      const firstVisibleImage = Array.from(photoContainer.children).find(
-        (child) => {
-          return child.getBoundingClientRect().y > scrollSectionStart;
-        }
-      );
-      console.log(firstVisibleImage);
-      this.fullscreen = !fullscreen;
-      const waitForClass = setInterval(() => {
-        const classChanged = this.fullscreen
-          ? photoContainer.classList.contains(
-              "photo-page__photo-container--fullscreen"
-            )
-          : !photoContainer.classList.contains(
-              "photo-page__photo-container--fullscreen"
-            );
-
-        if (classChanged) {
-          targetContainer.scrollTop =
-            firstVisibleImage.getBoundingClientRect().y - scrollSectionStart;
-          clearInterval(waitForClass);
-        }
-      }, 50);
-      setTimeout(() => {
-        clearInterval(waitForClass);
-      }, 300);
+      this.fullscreen = !this.fullscreen;
     },
+    // fullscreenToggle() {
+    //   const fullscreen = this.fullscreen;
+    //   const photoContainer = this.$refs.photoContainer;
+    //   const currentContainer = fullscreen
+    //     ? photoContainer
+    //     : photoContainer.parentNode;
+    //   const targetContainer = fullscreen
+    //     ? photoContainer.parentNode
+    //     : photoContainer;
+    //   const scrollSectionStart = currentContainer.getBoundingClientRect().y;
+    //   // const firstVisibleImage = Array.from(photoContainer.children).find(
+    //   //   child => {
+    //   //     const childBoundingRect = child.getBoundingClientRect();
+    //   //     return (
+    //   //       childBoundingRect.y + childBoundingRect.height > scrollSectionStart
+    //   //     );
+    //   //   }
+    //   // );
+    //   const firstVisibleImage = Array.from(photoContainer.children).find(
+    //     (child) => {
+    //       return child.getBoundingClientRect().y > scrollSectionStart;
+    //     }
+    //   );
+    //   console.log(firstVisibleImage);
+    //   this.fullscreen = !fullscreen;
+    //   const waitForClass = setInterval(() => {
+    //     const classChanged = this.fullscreen
+    //       ? photoContainer.classList.contains("photo-container--fullscreen")
+    //       : !photoContainer.classList.contains("photo-container--fullscreen");
+
+    //     if (classChanged) {
+    //       targetContainer.scrollTop =
+    //         firstVisibleImage.getBoundingClientRect().y - scrollSectionStart;
+    //       clearInterval(waitForClass);
+    //     }
+    //   }, 50);
+    //   setTimeout(() => {
+    //     clearInterval(waitForClass);
+    //   }, 300);
+    // },
     fetchData() {
       this.error = this.post = null;
 
@@ -138,72 +136,59 @@ export default {
 };
 </script>
 
-<style scoped>
-.photo-page {
-  height: 100%;
-  &__fullscreen-icon-container {
-    position: absolute;
-    right: 2px;
-    bottom: 56px;
-    font-size: 40px;
-    width: 40px;
-    color: white;
-    z-index: 49;
-    transition: transform 300ms;
-    transform: scale(1);
+<style scoped lang="scss">
+.fullscreen-icon-container {
+  position: absolute;
+  right: 2px;
+  bottom: 56px;
+  font-size: 40px;
+  width: 40px;
+  color: white;
+  z-index: 49;
+  transition: transform 300ms;
+  transform: scale(1);
 
-    /* &:hover {
-      transform: scale(1.5);
-    } */
-    &--fullscreen {
-      position: fixed;
-      /* top: 15px; */
-      right: 10px;
-      transform: scale(1.5);
-    }
+  &:hover {
+    transform: scale(1.5);
   }
-  &__fullscreen-icon {
-    width: 100%;
-    height: 100%;
-  }
-  &__photo-container {
-    margin: 15px 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    overflow: scroll;
-    &--fullscreen {
-      margin: 0;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 48;
-      background-color: rgb(var(--main-bg-color));
-    }
-  }
-  &__image {
-    max-width: 100%;
-    margin-bottom: 10px;
-    object-fit: cover;
-    min-height: 200px;
-    &--fullscreen {
-      width: 100%;
-    }
+  &--fullscreen {
+    position: fixed;
+    right: 10px;
+    transform: scale(1.5);
   }
 }
+.fullscreen-icon {
+  width: 100%;
+  height: 100%;
+}
+.photo-container {
+  margin: 15px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow: scroll;
+  &--fullscreen {
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 48;
+    background-color: var(--main-bg-color);
+  }
+}
+img {
+  max-width: 100%;
+  margin-bottom: 10px;
+  object-fit: cover;
+  min-height: 200px;
+}
 @media (min-width: 500px) {
-  .photo-page {
-    &__image {
-      width: 49%;
-      min-height: 100%;
-      &--fullscreen {
-        width: 100%;
-        min-height: 0;
-      }
-    }
+  img {
+    width: 49%;
+    min-height: 100%;
   }
 }
 </style>
