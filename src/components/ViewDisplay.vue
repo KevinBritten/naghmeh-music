@@ -1,20 +1,11 @@
 <template>
-  <div
-    class="view-display"
-    :class="{ 'view-display--home': $route.path === '/' }"
-  >
+  <div class="view-display">
     <h2 v-show="$route.path !== '/'">{{ $route.name }}</h2>
     <router-view />
-    <site-footer />
   </div>
 </template>
 
 <script>
-import SiteFooter from "../components/SiteFooter.vue";
-
-export default {
-  components: { SiteFooter },
-};
 </script>
 
 <style lang='scss' scoped>
@@ -23,9 +14,6 @@ export default {
   background-color: var(--c-page-background);
   padding: 10px 10px;
   overflow: scroll;
-  &--home {
-    background-color: transparent;
-  }
 }
 h2 {
   text-align: center;

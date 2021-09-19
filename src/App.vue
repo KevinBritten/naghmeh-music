@@ -16,7 +16,10 @@
       v-show="menuIsOpen"
       @close-menu="menuIsOpen = false"
     ></site-header>
-    <view-display> </view-display>
+    <home v-if="isHome"></home>
+
+    <view-display v-else> </view-display>
+    <site-footer />
   </div>
 </template>
 
@@ -26,6 +29,8 @@ import HeaderLogo from "./components/HeaderLogo.vue";
 import SiteHeader from "./components/SiteHeader.vue";
 import SiteTitle from "./components/SiteTitle.vue";
 import ViewDisplay from "./components/ViewDisplay.vue";
+import Home from "./views/Home.vue";
+import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
   name: "app",
@@ -34,12 +39,19 @@ export default {
       menuIsOpen: false,
     };
   },
+  computed: {
+    isHome() {
+      return this.$route.path === "/";
+    },
+  },
   components: {
     SiteHeader,
     ViewDisplay,
     Hamburger,
     HeaderLogo,
     SiteTitle,
+    Home,
+    SiteFooter,
   },
 };
 </script>
@@ -51,7 +63,7 @@ export default {
   overflow: hidden;
 }
 img {
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 0;
   bottom: 0;

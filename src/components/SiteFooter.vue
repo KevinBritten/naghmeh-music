@@ -43,7 +43,7 @@ export default {};
 
 <style scoped>
 .site-footer {
-  position: fixed;
+  position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
