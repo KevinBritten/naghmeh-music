@@ -14,6 +14,7 @@
   background-color: var(--c-page-background);
   padding: 10px 10px;
   overflow: scroll;
+  text-align: center;
 }
 h2 {
   text-align: center;
