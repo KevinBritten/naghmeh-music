@@ -36,7 +36,7 @@
 </script>
 <style scoped>
 p {
-  padding: 15px 0 10px 0;
+  padding: 15px 10px 10px;
   margin-top: 0;
 }
 </style>
