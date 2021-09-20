@@ -57,7 +57,7 @@ export default {};
     }
   }
   &--second-line {
-    top: 2.1rem;
+    top: 2.5rem;
   }
   &__large-letter {
     font-size: 1.8em;
