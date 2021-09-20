@@ -41,28 +41,35 @@
 export default {};
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import ".././styles/mixins.scss";
+
 .site-footer {
   position: absolute;
   left: 0;
   bottom: 0;
   width: 100%;
   height: 60px;
-  padding: 10px 0;
   background-color: var(--c-footer-bg);
   z-index: 50;
 
   &__social-icons {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    height: 100%;
 
     a {
-      width: 10%;
-      margin: auto 0;
+      display: flex;
+      width: 40px;
+      max-width: 10%;
     }
     img {
       width: 100%;
     }
   }
+}
+
+@include atTabletPortrait {
 }
 </style>
