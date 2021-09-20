@@ -1,5 +1,5 @@
 <template>
-  <div class="site-footer">
+  <div class="site-footer" :class="{ '--menu-open': menuIsOpen }">
     <div class="site-footer__social-icons">
       <a
         target="_blank"
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-export default {};
+export default { props: ["menuIsOpen"] };
 </script>
 
 <style scoped lang="scss">
@@ -68,6 +68,10 @@ export default {};
       width: 100%;
     }
   }
+}
+
+.--menu-open {
+  z-index: 85;
 }
 
 @include atTabletPortrait {

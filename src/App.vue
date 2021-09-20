@@ -26,7 +26,7 @@
     <home v-if="isHome"></home>
 
     <view-display v-else> </view-display>
-    <site-footer />
+    <site-footer :class="{ '--menu-open': menuIsOpen }" />
   </div>
 </template>
 
