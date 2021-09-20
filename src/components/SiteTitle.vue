@@ -53,10 +53,11 @@ export default {};
     bottom: 0;
     &--second-line {
       padding-left: 1px;
+      letter-spacing: 0.11rem;
     }
   }
   &--second-line {
-    top: 2.5rem;
+    top: 2.1rem;
   }
   &__large-letter {
     font-size: 1.8em;
@@ -64,11 +65,11 @@ export default {};
       display: block;
       line-height: 0;
       position: absolute;
-      top: 1.2rem;
+      top: 1rem;
       right: -5px;
     }
     &--first-line {
-      letter-spacing: -0.7rem;
+      letter-spacing: -0.5rem;
     }
   }
 }

@@ -96,7 +96,7 @@ img {
   position: fixed;
   top: 15px;
   left: 110px;
-  transform: scale(0.3);
+  transform: scale(0.4);
   transform-origin: top left;
   z-index: 50;
 }

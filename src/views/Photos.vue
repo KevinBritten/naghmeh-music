@@ -177,7 +177,7 @@ export default {
     bottom: 0;
     left: 0;
     z-index: 70;
-    background-color: var(--main-bg-color);
+    background-color: var(--c-page-background);
   }
 }
 img {
