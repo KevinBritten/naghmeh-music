@@ -137,6 +137,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import ".././styles/mixins.scss";
+
 .fullscreen-icon-container {
   position: absolute;
   right: 2px;
@@ -178,6 +180,9 @@ export default {
     left: 0;
     z-index: 70;
     background-color: var(--c-page-background);
+    img {
+      width: 100%;
+    }
   }
 }
 img {
@@ -186,10 +191,10 @@ img {
   object-fit: cover;
   min-height: 200px;
 }
-@media (min-width: 500px) {
+
+@include atTabletPortrait {
   img {
     width: 49%;
-    min-height: 100%;
   }
 }
 </style>

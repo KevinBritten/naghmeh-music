@@ -12,13 +12,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import ".././styles/mixins.scss";
+
 .home {
   position: relative;
   padding-top: 20px;
   color: white;
+}
+p {
+  padding-left: 10px;
+}
+
+@include atTabletPortrait {
   p {
-    padding-left: 10px;
+    padding-left: 60px;
   }
 }
 </style>
