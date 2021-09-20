@@ -65,7 +65,7 @@ export default {};
       display: block;
       line-height: 0;
       position: absolute;
-      top: 1rem;
+      top: 1.2rem;
       right: -5px;
     }
     &--first-line {
