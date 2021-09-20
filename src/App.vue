@@ -1,9 +1,16 @@
 <template>
   <div id="app">
     <img src="./assets/11.+Naghmeh+Portrait+Illuminated.jpg" />
-
-    <header-logo @close-menu="menuIsOpen = false"></header-logo>
-    <div class="site-title-container">
+    <site-header
+      class="site-header"
+      :menu-is-open="menuIsOpen"
+      v-show="menuIsOpen"
+      @close-menu="menuIsOpen = false"
+    ></site-header>
+    <div :class="{ '--menu-open': menuIsOpen }" class="header-logo-container">
+      <header-logo @close-menu="menuIsOpen = false" />
+    </div>
+    <div class="site-title-container" :class="{ '--menu-open': menuIsOpen }">
       <site-title v-show="$route.path !== '/'" />
     </div>
     <hamburger
@@ -91,6 +98,12 @@ img {
   left: 110px;
   transform: scale(0.3);
   transform-origin: top left;
-  z-index: 101;
+  z-index: 50;
+}
+.--menu-open {
+  z-index: 85;
+}
+.header-logo-container {
+  position: relative;
 }
 </style>

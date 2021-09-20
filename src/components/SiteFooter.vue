@@ -50,7 +50,7 @@ export default {};
   height: 60px;
   padding: 10px 0;
   background-color: var(--c-footer-bg);
-  z-index: 101;
+  z-index: 50;
 
   &__social-icons {
     display: flex;

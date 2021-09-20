@@ -18,6 +18,6 @@ export default {};
   top: 10px;
   left: 10px;
   width: 40px;
-  z-index: 100;
+  z-index: 60;
 }
 </style>

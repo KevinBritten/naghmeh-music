@@ -38,5 +38,6 @@
 p {
   padding: 15px 10px 10px;
   margin-top: 0;
+  text-align: left;
 }
 </style>

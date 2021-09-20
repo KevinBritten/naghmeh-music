@@ -37,7 +37,7 @@ export default {
   bottom: 0;
   left: 0;
   background-color: black;
-  z-index: 50;
+  z-index: 80;
   color: white;
   &__link-container {
     display: flex;

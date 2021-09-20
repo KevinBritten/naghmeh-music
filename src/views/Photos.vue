@@ -144,7 +144,7 @@ export default {
   font-size: 40px;
   width: 40px;
   color: white;
-  z-index: 49;
+  z-index: 75;
   transition: transform 300ms;
   transform: scale(1);
 
@@ -154,6 +154,7 @@ export default {
   &--fullscreen {
     position: fixed;
     right: 10px;
+    bottom: 10px;
     transform: scale(1.5);
   }
 }
@@ -175,7 +176,7 @@ export default {
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 48;
+    z-index: 70;
     background-color: var(--main-bg-color);
   }
 }
