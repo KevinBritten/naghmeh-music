@@ -1,33 +1,17 @@
 <template>
-  <div class="videos-page">
-    <div class="videos-page__youtube-embed">
-      <div
-        class="videos-page__single-embed-container"
-        v-for="video in videos"
-        :key="video.name"
-      >
-        <h2>{{ video.name }}</h2>
-        <p>{{ video.subtitle }}</p>
-        <iframe
-          width="560"
-          height="315"
-          :src="`https://www.youtube.com/embed/` + video.code"
-          :title="`YouTube video player - ` + video.name"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </div>
+  <div>
+    <media-item v-for="video in videos" :key="video.name" :mediaItem="video" />
   </div>
 </template>
 
 <script>
+import MediaItem from "../components/MediaItem.vue";
 import sanity from "../sanity";
 
 const query = `*[_type == "videos"]`;
 
 export default {
+  components: { MediaItem },
   data() {
     return {
       videos: [],
@@ -36,6 +20,9 @@ export default {
   created() {
     this.fetchData().then((payload) => {
       this.videos = payload;
+      this.videos.forEach((v) => {
+        v.url = `https://www.youtube.com/embed/` + v.code;
+      });
     });
   },
   methods: {
@@ -56,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-h2 {
+/* h2 {
   margin-bottom: 5px;
   text-decoration: underline;
 }
@@ -85,5 +72,5 @@ iframe {
   max-height: 90%;
   width: 100%;
   border: 0;
-}
+} */
 </style>

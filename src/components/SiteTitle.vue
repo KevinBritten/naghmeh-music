@@ -16,7 +16,9 @@
           >S</span
         ></span
       ><span class="site-title__anchor-letter">H</span
-      ><span class="site-title__after">AFIEI</span>
+      ><span class="site-title__after site-title__after--second-line"
+        >AFIEI</span
+      >
     </h1>
   </div>
 </template>
@@ -35,8 +37,6 @@ export default {};
   &__title-container {
     position: relative;
     height: 10rem;
-    // max-width: 100%;
-    // transform: scale(0.8);
   }
   &__anchor-letter {
     position: relative;
@@ -51,6 +51,9 @@ export default {};
     position: absolute;
     left: 100%;
     bottom: 0;
+    &--second-line {
+      padding-left: 1px;
+    }
   }
   &--second-line {
     top: 2.5rem;
