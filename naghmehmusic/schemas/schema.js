@@ -8,6 +8,7 @@ import videos from "./videos";
 import photos from "./photos";
 import spotifyPlaylists from "./spotifyPlaylists";
 import products from "./products";
+import information from "./information";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,7 +20,8 @@ export default createSchema({
     videos,
     photos,
     spotifyPlaylists,
-    products
+    products,
+    information
     /* Your types here! */
   ])
 });
