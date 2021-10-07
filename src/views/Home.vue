@@ -21,7 +21,7 @@ export default {
   color: white;
 }
 p {
-  padding-left: 10px;
+  padding-left: 20px;
 }
 
 @include atTabletPortrait {

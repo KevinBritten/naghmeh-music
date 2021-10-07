@@ -25,7 +25,7 @@
         target="_blank"
         href="https://open.spotify.com/artist/0vBnUPIvZVYs1EIW5DyfCb?si=UXtdQ11eRxaeHPRQL0G4bQ"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--spotify.svg"
+          src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
       /></a>
       <a
         target="_blank"
@@ -49,7 +49,7 @@ export default { props: ["menuIsOpen"] };
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: 50px;
   background-color: var(--c-footer-bg);
   z-index: 50;
 
@@ -61,7 +61,7 @@ export default { props: ["menuIsOpen"] };
 
     a {
       display: flex;
-      width: 40px;
+      width: 30px;
       max-width: 10%;
     }
     img {

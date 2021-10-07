@@ -30,10 +30,14 @@ export default {
 .hamburger-menu {
   position: absolute;
   top: 50%;
-  width: 40px;
+  width: 35px;
   height: 2px;
   right: 0;
-  background: #fff;
+  background: var(--c-grey);
+  border: 2px solid var(--c-grey);
+  border-radius: 2px;
+  border-top: none;
+  border-bottom: none;
   &:before,
   &:after {
     content: "";
@@ -41,9 +45,13 @@ export default {
     width: 100%;
     height: 100%;
     background: inherit;
-    left: 0;
+    left: -2px;
     transform-origin: center center;
     transition: transform 0.25s ease, top 0.25s ease, bottom 0.25s ease;
+    border: 2px solid var(--c-grey);
+    border-radius: 2px;
+    border-top: none;
+    border-bottom: none;
   }
 
   &:before {
@@ -55,10 +63,11 @@ export default {
   }
   &--clicked {
     background: transparent;
+    border: none;
 
     &:before,
     &:after {
-      background: white;
+      background: var(--c-grey);
     }
     &:before {
       transform: rotate(45deg);
