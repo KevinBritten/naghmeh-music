@@ -11,7 +11,8 @@ export default {
     {
       name: "bio",
       title: "Bio",
-      type: "text"
+      type: "array",
+      of: [{ type: "block" }]
     },
     {
       name: "email",
