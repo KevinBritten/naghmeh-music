@@ -30,7 +30,7 @@ export default {
       title: "name"
     },
     prepare(selection) {
-      return { title: "Max 1 Document" };
+      return { title: "Edit This Document" };
     }
   }
 };
