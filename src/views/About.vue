@@ -33,6 +33,37 @@
   </div>
 </template>
 <script>
+import sanity from "../sanity";
+
+const query = `*[_type == "information"]`;
+
+export default {
+  data() {
+    return {
+      bio: [],
+    };
+  },
+  created() {
+    this.fetchData().then((payload) => {
+      this.bio = payload;
+    });
+  },
+  methods: {
+    fetchData() {
+      this.error = this.post = null;
+
+      return sanity.fetch(query).then(
+        (information) => {
+          console.log(Array.from(information[0].bio));
+          return information[0].bio;
+        },
+        (error) => {
+          this.error = error;
+        }
+      );
+    },
+  },
+};
 </script>
 <style scoped>
 p {
