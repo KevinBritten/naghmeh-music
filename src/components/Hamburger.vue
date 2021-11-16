@@ -1,8 +1,8 @@
 <template>
   <div class="hamburger-container" @click="toggleMenu">
     <div
-      class="hamburger-menu"
-      :class="{ 'hamburger-menu--clicked': menuIsOpen }"
+      class="hamburger-button"
+      :class="{ 'hamburger-button--clicked': menuIsOpen }"
     ></div>
   </div>
 </template>
@@ -12,7 +12,7 @@ export default {
   props: ["menuIsOpen"],
   methods: {
     toggleMenu() {
-      this.$emit("toggle-menu");
+      this.$emit("toggle-button");
     },
   },
 };
@@ -27,7 +27,7 @@ export default {
   height: 40px;
   width: 40px;
 }
-.hamburger-menu {
+.hamburger-button {
   position: absolute;
   top: 50%;
   width: 35px;
