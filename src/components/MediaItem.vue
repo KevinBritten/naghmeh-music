@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h2>{{ mediaItem.name }}</h2>
+  <div class="media-item">
+    <h3>{{ mediaItem.name }}</h3>
     <p v-if="mediaItem.subtitle">{{ mediaItem.subtitle }}</p>
 
     <iframe
@@ -32,5 +32,9 @@ iframe {
   height: 360px;
   width: 100%;
   border: 0;
+}
+
+.media-item {
+  margin-bottom: 50px;
 }
 </style>

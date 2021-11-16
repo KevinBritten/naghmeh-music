@@ -1,6 +1,6 @@
 <template>
-  <div class="merch-item__item-container">
-    <h2>{{ product.name }}</h2>
+  <div class="merch-item">
+    <h3>{{ product.name }}</h3>
     <p v-if="product.details">{{ product.details }}</p>
     <img
       class="merch-item__product-image"
@@ -43,14 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .merch-item {
-  &__item-container {
-    margin: 10px 0 30px;
-    text-align: center;
-    a {
-      font-family: Arial;
-    }
-  }
-
+  margin-bottom: 50px;
   &__product-image {
     height: 250px;
     width: 100%;

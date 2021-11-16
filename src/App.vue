@@ -66,7 +66,7 @@ export default {
 <style scoped>
 #app {
   height: 100%;
-  padding: 70px 0 60px;
+  padding: 70px 0 50px;
   overflow: hidden;
 }
 img {

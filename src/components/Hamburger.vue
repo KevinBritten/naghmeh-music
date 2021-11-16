@@ -22,7 +22,7 @@ export default {
 .hamburger-container {
   position: fixed;
   right: 20px;
-  top: 10px;
+  top: 14px;
   z-index: 100;
   height: 40px;
   width: 40px;

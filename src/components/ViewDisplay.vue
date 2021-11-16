@@ -24,9 +24,9 @@ h2 {
 h2::before,
 h2::after {
   content: "";
-  height: 0.7rem;
-  width: 0.7rem;
-  margin: 0 1rem 0.2rem;
+  height: 0.4rem;
+  width: 0.4rem;
+  margin: 0 0.5rem 0.3rem;
   background-color: black;
   border-radius: 50%;
   display: inline-block;
