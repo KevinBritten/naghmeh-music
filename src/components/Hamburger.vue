@@ -12,7 +12,7 @@ export default {
   props: ["menuIsOpen"],
   methods: {
     toggleMenu() {
-      this.$emit("toggle-button");
+      this.$emit("toggle-menu");
     },
   },
 };
