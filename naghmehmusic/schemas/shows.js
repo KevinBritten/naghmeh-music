@@ -14,7 +14,7 @@ export default {
       type: "string"
     },
     {
-      name: "ticketURL",
+      name: "ticketUrl",
       title: "Ticket URL",
       type: "string"
     },
