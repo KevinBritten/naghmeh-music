@@ -2,10 +2,14 @@
   <div>
     <h3>Upcoming Shows</h3>
     <hr />
-    <ShowItem v-for="show in upcomingShows" :key="show.name" :show="show" />
+    <ShowItem
+      v-for="show in upcomingShowsSorted"
+      :key="show.name"
+      :show="show"
+    />
     <h3>Past Shows</h3>
     <hr />
-    <ShowItem v-for="show in pastShows" :key="show.name" :show="show" />
+    <ShowItem v-for="show in pastShowsSorted" :key="show.name" :show="show" />
   </div>
 </template>
 
@@ -23,18 +27,21 @@ export default {
       pastShows: [],
     };
   },
+  computed: {
+    upcomingShowsSorted() {
+      return this.upcomingShows.sort(this.sortByDate);
+    },
+    pastShowsSorted() {
+      return this.pastShows.sort(this.sortByDate);
+    },
+  },
   created() {
+    const currentDate = new Date(Date.now());
     this.fetchData().then((payload) => {
       //set shows to past or present once its the day after the show
-      const currentDate = new Date(Date.now());
-      console.log(currentDate);
+      // const currentDate = new Date(Date.now());
       payload.forEach((show) => {
-        var showDate = new Date(show.date);
-        var upcoming =
-          currentDate.getFullYear() <= showDate.getFullYear() &&
-          currentDate.getMonth() <= showDate.getMonth() &&
-          currentDate.getDay() <= showDate.getDay();
-        if (upcoming == true) {
+        if (this.showIsUpcoming(show, currentDate)) {
           this.upcomingShows.push(show);
         } else {
           this.pastShows.push(show);
@@ -55,6 +62,33 @@ export default {
           this.error = error;
         }
       );
+    },
+    sortByDate(a, b) {
+      if (a.date < b.date) {
+        return 1;
+      }
+      if (a.date > b.date) {
+        return -1;
+      }
+      return 0;
+    },
+    showIsUpcoming(show, currentDate) {
+      var showDate = new Date(show.date);
+      var upcoming = false;
+      //Sort shows to past and future. If a date is in a future year, set upcoming to true,
+      //if its in the same year check to see if it is in an upcoming month. repeat for months and days.
+      if (currentDate.getFullYear() <= showDate.getFullYear()) {
+        upcoming =
+          currentDate.getFullYear() < showDate.getFullYear() ? true : upcoming;
+        if (currentDate.getMonth() <= showDate.getMonth()) {
+          upcoming =
+            currentDate.getMonth() < showDate.getMonth() ? true : upcoming;
+          if (currentDate.getDate() <= showDate.getDate()) {
+            upcoming = true;
+          }
+        }
+      }
+      return upcoming;
     },
   },
 };

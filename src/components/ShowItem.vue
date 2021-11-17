@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="show-item">
     <h4>{{ show.name }}</h4>
-    <p>{{ show.date }}</p>
+    <p>{{ parsedDate }}</p>
     <img
       class="show-item__image"
       v-if="show.image"
@@ -22,10 +22,20 @@
       ><img
         src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg"
     /></a>
+    <img
+      v-else
+      src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg"
+      style="opacity: 0.4"
+    />
     <a target="_blank" :href="ticketUrl" v-if="show.ticketUrl"
       ><img
         src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
     /></a>
+    <img
+      v-else
+      src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
+      style="opacity: 0.4"
+    />
   </div>
 </template>
 
@@ -35,6 +45,27 @@ import sanity from "../sanity";
 import imageUrlBuilder from "@sanity/image-url";
 const imageBuilder = imageUrlBuilder(sanity);
 export default {
+  data() {
+    return {
+      months: {
+        french: [],
+        english: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ],
+      },
+    };
+  },
   methods: {
     imageUrlFor(source) {
       return imageBuilder.image(source);
@@ -42,6 +73,9 @@ export default {
   },
   computed: {
     facebookUrl() {
+      if (!this.show.facebookUrl) {
+        return "";
+      }
       return this.show.facebookUrl.includes("http")
         ? this.show.facebookUrl
         : `https://` + this.show.facebookUrl;
@@ -51,6 +85,14 @@ export default {
         ? this.show.ticketUrl
         : `https://` + this.show.ticketUrl;
     },
+    parsedDate() {
+      //TODO: allow for french
+      const date = new Date(this.show.date);
+      console.log(date.getMonth());
+      return `${
+        this.months.english[date.getMonth()]
+      } ${date.getDate()} ${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
+    },
   },
   props: ["show"],
 };
@@ -58,6 +100,7 @@ export default {
 
 <style scoped>
 .show-item {
+  margin: 50px 0;
   &__image {
     width: 100%;
     max-height: 300px;
