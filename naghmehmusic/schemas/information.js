@@ -23,6 +23,23 @@ export default {
       name: "phone",
       title: "Phone Number",
       type: "string"
+    },
+    {
+      name: "homepageButton",
+      title: "Homepage Button",
+      type: "object",
+      fields: [
+        {
+          name: "text",
+          title: "Text",
+          type: "string"
+        },
+        {
+          name: "target",
+          title: "Target Page",
+          type: "string"
+        }
+      ]
     }
   ],
   preview: {
