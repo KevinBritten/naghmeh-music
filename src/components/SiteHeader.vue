@@ -44,6 +44,7 @@ export default {
     height: 100%;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 10%;
   }
 }
 

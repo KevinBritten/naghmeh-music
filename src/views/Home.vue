@@ -1,14 +1,41 @@
 <template>
   <div class="home">
     <site-title />
-    <p>new single ‘A Great Song’<br/> available now on Spotify</br> and Youtube</p>
+    <p>{{ tagline }}</p>
   </div>
 </template>
 
 <script>
+import sanity from "../sanity";
+
 import SiteTitle from "../components/SiteTitle.vue";
+
+const query = `*[_type == "information"]`;
 export default {
   components: { SiteTitle },
+  data() {
+    return {
+      tagline: "",
+    };
+  },
+  created() {
+    this.fetchData().then((payload) => {
+      this.tagline = payload;
+    });
+  },
+  methods: {
+    fetchData() {
+      this.error = this.post = null;
+      return sanity.fetch(query).then(
+        (information) => {
+          return information[0].tagline;
+        },
+        (error) => {
+          this.error = error;
+        }
+      );
+    },
+  },
 };
 </script>
 
@@ -22,6 +49,7 @@ export default {
 }
 p {
   padding-left: 20px;
+  max-width: 190px;
 }
 
 @include atTabletPortrait {
