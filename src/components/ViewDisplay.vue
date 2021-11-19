@@ -9,6 +9,8 @@
 </script>
 
 <style lang='scss' scoped>
+@import ".././styles/mixins.scss";
+
 .view-display {
   height: 100%;
   background-color: var(--c-page-background);
@@ -30,5 +32,11 @@ h2::after {
   background-color: black;
   border-radius: 50%;
   display: inline-block;
+}
+
+@include atTabletPortrait {
+  .view-display {
+    padding: 100px;
+  }
 }
 </style>

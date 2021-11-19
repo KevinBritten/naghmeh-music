@@ -20,20 +20,27 @@
     />
     <a target="_blank" :href="facebookUrl" v-if="show.facebookUrl"
       ><img
+        class="show-item__icon"
         src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg"
     /></a>
     <img
+      class="show-item__icon"
       v-else
       src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg"
       style="opacity: 0.4"
     />
-    <a target="_blank" :href="ticketUrl" v-if="show.ticketUrl"
+    <a
+      target="_blank"
+      :href="ticketUrl"
+      v-if="show.ticketUrl && $attrs.upcoming"
       ><img
-        src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
+        class="show-item__icon"
+        src="../assets/icons/tickets-svgrepo-com.svg"
     /></a>
     <img
+      class="show-item__icon"
       v-else
-      src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
+      src="../assets/icons/tickets-svgrepo-com.svg"
       style="opacity: 0.4"
     />
   </div>
@@ -66,6 +73,7 @@ export default {
       },
     };
   },
+  props: ["upcoming"],
   methods: {
     imageUrlFor(source) {
       return imageBuilder.image(source);
@@ -99,12 +107,17 @@ export default {
 </script>
 
 <style scoped>
+@import ".././styles/mixins.scss";
+
 .show-item {
   margin: 50px 0;
   &__image {
     width: 100%;
     max-height: 300px;
     object-fit: cover;
+  }
+  &__icon {
+    width: 40px;
   }
 }
 </style>

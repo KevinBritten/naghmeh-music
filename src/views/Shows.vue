@@ -1,15 +1,21 @@
 <template>
-  <div>
+  <div class="shows">
     <h3>Upcoming Shows</h3>
     <hr />
     <ShowItem
       v-for="show in upcomingShowsSorted"
       :key="show.name"
       :show="show"
+      :upcoming="true"
     />
     <h3>Past Shows</h3>
     <hr />
-    <ShowItem v-for="show in pastShowsSorted" :key="show.name" :show="show" />
+    <ShowItem
+      v-for="show in pastShowsSorted"
+      :key="show.name"
+      :show="show"
+      :upcoming="false"
+    />
   </div>
 </template>
 
@@ -94,5 +100,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang='scss' scoped>
+@import ".././styles/mixins.scss";
+
+h3,
+hr {
+  width: 100%;
+}
 </style>
