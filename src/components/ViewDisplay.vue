@@ -39,4 +39,10 @@ h2::after {
     padding: 100px;
   }
 }
+
+@include atDesktop {
+  .view-display {
+    padding: 50px 300px;
+  }
+}
 </style>

@@ -107,4 +107,8 @@ h3,
 hr {
   width: 100%;
 }
+
+hr {
+  border-color: grey;
+}
 </style>
