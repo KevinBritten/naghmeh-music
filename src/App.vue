@@ -7,6 +7,7 @@
       v-show="menuIsOpen"
       @close-menu="menuIsOpen = false"
     ></site-header>
+    <site-header-desktop></site-header-desktop>
     <div :class="{ '--menu-open': menuIsOpen }" class="header-logo-container">
       <header-logo @close-menu="menuIsOpen = false" />
     </div>
@@ -34,6 +35,7 @@
 import Hamburger from "./components/Hamburger.vue";
 import HeaderLogo from "./components/HeaderLogo.vue";
 import SiteHeader from "./components/SiteHeader.vue";
+import SiteHeaderDesktop from "./components/SiteHeaderDesktop.vue";
 import SiteTitle from "./components/SiteTitle.vue";
 import ViewDisplay from "./components/ViewDisplay.vue";
 import Home from "./views/Home.vue";
@@ -53,6 +55,7 @@ export default {
   },
   components: {
     SiteHeader,
+    SiteHeaderDesktop,
     ViewDisplay,
     Hamburger,
     HeaderLogo,

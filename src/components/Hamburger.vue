@@ -19,6 +19,8 @@ export default {
 </script>
 
 <style scoped>
+@import ".././styles/mixins.scss";
+
 .hamburger-container {
   position: fixed;
   right: 20px;
@@ -77,6 +79,11 @@ export default {
       transform: rotate(-45deg);
       bottom: 0;
     }
+  }
+}
+@include atDesktop {
+  .hamburger-container {
+    display: none;
   }
 }
 </style>

@@ -170,7 +170,6 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow: scroll;
   &--fullscreen {
     margin: 0;
     position: fixed;
