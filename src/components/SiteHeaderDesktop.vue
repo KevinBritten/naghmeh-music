@@ -35,6 +35,7 @@ export default {
     background-color: black;
     display: block;
     padding: 10px 140px;
+    border-bottom: rgb(12, 12, 12) 1px solid;
     &__link-container {
       display: flex;
       justify-content: space-around;
@@ -45,7 +46,7 @@ export default {
   a {
     display: block;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-decoration: none;
     text-transform: uppercase;
     width: 100%;

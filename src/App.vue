@@ -66,7 +66,9 @@ export default {
 };
 </script>
 
-<style scoped>
+<style  lang="scss" scoped>
+@import "./styles/mixins.scss";
+
 #app {
   height: 100%;
   padding: 70px 0 50px;
@@ -108,5 +110,11 @@ img {
 }
 .header-logo-container {
   position: relative;
+}
+
+@include atDesktop {
+  .site-title-container {
+    display: none;
+  }
 }
 </style>
