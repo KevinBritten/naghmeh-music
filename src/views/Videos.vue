@@ -1,17 +1,17 @@
 <template>
   <div>
-    <media-item v-for="video in videos" :key="video.name" :mediaItem="video" />
+    <video-item v-for="video in videos" :key="video.name" :videoItem="video" />
   </div>
 </template>
 
 <script>
-import MediaItem from "../components/MediaItem.vue";
+import VideoItem from "../components/VideoItem.vue";
 import sanity from "../sanity";
 
 const query = `*[_type == "videos"]`;
 
 export default {
-  components: { MediaItem },
+  components: { VideoItem },
   data() {
     return {
       videos: [],
