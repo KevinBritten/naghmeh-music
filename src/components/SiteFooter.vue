@@ -74,6 +74,15 @@ export default { props: ["menuIsOpen"] };
   z-index: 85;
 }
 
-@include atTabletPortrait {
+@include atDesktop {
+  .site-footer {
+    &__social-icons {
+      justify-content: end;
+      padding-right: 40px;
+      a {
+        margin: 0 20px;
+      }
+    }
+  }
 }
 </style>

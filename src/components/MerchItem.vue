@@ -1,7 +1,6 @@
 <template>
   <div class="merch-item">
     <h3>{{ product.name }}</h3>
-    <p v-if="product.details">{{ product.details }}</p>
     <img
       class="merch-item__product-image"
       :alt="product.name"
@@ -15,6 +14,7 @@
       767px) 50vw, (min-width: 991px) 33vw, 100vw,"
       v-lazy="`${imageUrlFor(product.image)}`"
     />
+    <p v-if="product.details">{{ product.details }}</p>
 
     <p class="merch-item__price">
       ${{ product.price }} on
@@ -42,6 +42,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import ".././styles/mixins.scss";
+
 .merch-item {
   margin-bottom: 50px;
   &__product-image {
@@ -65,6 +67,19 @@ export default {
     display: block;
     background-color: white;
     margin-left: 10px;
+  }
+}
+@include atTabletPortrait {
+  .merch-item {
+    padding: 25px;
+
+    width: 50%;
+  }
+}
+
+@include atDesktop {
+  .merch-item {
+    width: 33%;
   }
 }
 </style>

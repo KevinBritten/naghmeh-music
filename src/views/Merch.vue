@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="merch-page">
     <merch-item
       v-for="product in products"
       :key="product.name"
@@ -43,5 +43,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import ".././styles/mixins.scss";
+
+@include atTabletPortrait {
+  .merch-page {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 </style>
