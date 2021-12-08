@@ -8,8 +8,10 @@
       <router-link :to="button.target" tag="button">{{
         button.text
       }}</router-link>
-      <input type="text" placeholder="join mailing list" />
-      <button>Submit</button>
+      <div class="home__mailing-list-container">
+        <input type="text" placeholder="join mailing list" />
+        <button>Submit</button>
+      </div>
     </div>
   </div>
 </template>
@@ -76,6 +78,22 @@ button {
     padding: 50px 0;
     display: flex;
     flex-direction: column;
+  }
+  &__mailing-list-container {
+    display: flex;
+
+    input {
+      line-height: 1rem;
+      display: block;
+      margin-right: 10px;
+      padding: 0 10px;
+      width: 300px;
+    }
+    button {
+      margin: 0;
+      background: transparent;
+      color: white;
+    }
   }
 }
 p {
