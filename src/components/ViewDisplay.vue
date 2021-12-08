@@ -42,9 +42,9 @@ h2::after {
 
 @include atDesktop {
   .view-display {
-    padding: 50px 300px;
-    overflow-y: scroll;
-    overflow-x: hidden;
+    padding: 60px 140px;
+
+    overflow: auto;
   }
 }
 </style>

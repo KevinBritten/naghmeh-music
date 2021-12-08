@@ -32,6 +32,7 @@ export default {
     position: fixed;
     top: 0;
     width: 100%;
+    height: 70px;
     background-color: black;
     display: block;
     padding: 10px 140px;
