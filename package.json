@@ -12,6 +12,7 @@
   "dependencies": {
     "@sanity/client": "^2.19.0",
     "@sanity/image-url": "^1.0.1",
+    "chokidar": "^3.5.2",
     "normalize.css": "^8.0.1",
     "sanity-blocks-vue-component": "^0.1.0",
     "vue": "^2.5.11",
