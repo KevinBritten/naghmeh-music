@@ -15,8 +15,8 @@ export default {};
 <style lang="scss" scoped>
 .header-logo {
   position: fixed;
-  top: 10px;
-  left: 10px;
+  top: 14px;
+  left: 14px;
   width: 40px;
   z-index: 60;
 }

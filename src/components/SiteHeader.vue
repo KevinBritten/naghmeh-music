@@ -44,14 +44,13 @@ export default {
     height: 100%;
     flex-direction: column;
     justify-content: center;
-    // padding-bottom: 10%;
   }
 }
 
 a {
   display: block;
   color: white;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;

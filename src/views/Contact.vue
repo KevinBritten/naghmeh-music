@@ -10,11 +10,8 @@
 <script>
 import sanity from "../sanity";
 
-import SiteTitle from "../components/SiteTitle.vue";
-
 const query = `*[_type == "information"]`;
 export default {
-  components: { SiteTitle },
   data() {
     return {
       email: "",

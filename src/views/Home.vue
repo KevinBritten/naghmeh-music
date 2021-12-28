@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__title-container">
-      <site-title />
+      <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
       <p>{{ tagline }}</p>
     </div>
     <div class="home__buttons-container">
@@ -19,11 +19,8 @@
 <script>
 import sanity from "../sanity";
 
-import SiteTitle from "../components/SiteTitle.vue";
-
 const query = `*[_type == "information"]`;
 export default {
-  components: { SiteTitle },
   data() {
     return {
       tagline: "",
@@ -66,13 +63,22 @@ button {
   display: flex;
   flex-direction: column;
   height: 100%;
-  padding-top: 20px;
   color: white;
   align-items: center;
   justify-content: space-between;
 
   &__title-container {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 70%;
+      margin-bottom: 50px;
+    }
+    p {
+      align-self: flex-start;
+    }
   }
   &__buttons-container {
     padding: 50px 0;
