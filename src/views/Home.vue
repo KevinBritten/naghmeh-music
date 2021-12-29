@@ -24,11 +24,11 @@ export default {
   data() {
     return {
       tagline: "",
-      button: {},
+      button: {}
     };
   },
   created() {
-    this.fetchData().then((payload) => {
+    this.fetchData().then(payload => {
       this.tagline = payload.tagline;
       this.button = payload.homepageButton;
     });
@@ -37,15 +37,15 @@ export default {
     fetchData() {
       this.error = this.post = null;
       return sanity.fetch(query).then(
-        (information) => {
+        information => {
           return information[0];
         },
-        (error) => {
+        error => {
           this.error = error;
         }
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -66,6 +66,7 @@ button {
   color: white;
   align-items: center;
   justify-content: space-between;
+  padding-top: 20px;
 
   &__title-container {
     width: 100%;
@@ -110,6 +111,16 @@ p {
 @include atTabletPortrait {
   p {
     padding-left: 60px;
+  }
+}
+@include atDesktop {
+  .home {
+    padding: 20px 20px 0px;
+    &__title-container {
+      img {
+        width: 500px;
+      }
+    }
   }
 }
 </style>

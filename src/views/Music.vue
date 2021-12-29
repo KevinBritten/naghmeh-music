@@ -1,7 +1,14 @@
 <template>
-  <div>
+  <div class="music-page">
     <media-item
-      v-for="spotifyPlaylist in spotifyPlaylists"
+      v-for="spotifyPlaylist in albums"
+      :key="spotifyPlaylist.name"
+      :mediaItem="spotifyPlaylist"
+    />
+    <p>Naghmeh appears on:</p>
+    <hr />
+    <media-item
+      v-for="spotifyPlaylist in features"
       :key="spotifyPlaylist.name"
       :mediaItem="spotifyPlaylist"
     />
@@ -18,12 +25,19 @@ export default {
   components: { MediaItem },
   data() {
     return {
-      spotifyPlaylists: [],
+      albums: [],
+      features: []
     };
   },
   created() {
-    this.fetchData().then((payload) => {
-      this.spotifyPlaylists = payload;
+    this.fetchData().then(payload => {
+      payload.forEach(playlist => {
+        if (playlist.section == "feature") {
+          this.features.push(playlist);
+        } else {
+          this.albums.push(playlist);
+        }
+      });
     });
   },
   methods: {
@@ -31,17 +45,22 @@ export default {
       this.error = this.post = null;
 
       return sanity.fetch(query).then(
-        (spotifyPlaylists) => {
+        spotifyPlaylists => {
           return spotifyPlaylists;
         },
-        (error) => {
+        error => {
           this.error = error;
         }
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+@import ".././styles/mixins.scss";
+
+p {
+  margin-top: 20px;
+}
 </style>

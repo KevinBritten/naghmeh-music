@@ -42,13 +42,13 @@ export default {
   name: "app",
   data() {
     return {
-      menuIsOpen: false,
+      menuIsOpen: false
     };
   },
   computed: {
     isHome() {
       return this.$route.path === "/";
-    },
+    }
   },
   components: {
     SiteHeader,
@@ -57,12 +57,12 @@ export default {
     Hamburger,
     HeaderLogo,
     Home,
-    SiteFooter,
-  },
+    SiteFooter
+  }
 };
 </script>
 
-<style  lang="scss" scoped>
+<style lang="scss" scoped>
 @import "./styles/mixins.scss";
 
 #app {
@@ -99,5 +99,11 @@ img {
 }
 .header-logo-container {
   position: relative;
+}
+
+@include atDesktop {
+  img {
+    padding: 100px 50px 0 0;
+  }
 }
 </style>

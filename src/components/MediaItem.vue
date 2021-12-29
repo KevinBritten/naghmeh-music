@@ -20,6 +20,8 @@ export default { props: ["mediaItem"] };
 </script>
 
 <style scoped lang="scss">
+@import ".././styles/mixins.scss";
+
 p {
   margin: 0 0 10px;
 }
@@ -36,5 +38,12 @@ iframe {
 
 .media-item {
   margin-bottom: 50px;
+}
+
+@include atDesktop {
+  .media-item {
+    width: 500px;
+    margin: auto;
+  }
 }
 </style>
