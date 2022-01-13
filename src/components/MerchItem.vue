@@ -49,7 +49,7 @@ export default {
   &__product-image {
     height: 250px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
   }
   &__price {
     margin-top: 10px;

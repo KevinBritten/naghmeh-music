@@ -1,11 +1,30 @@
 <template>
-  <div class="view-display">
+  <div class="view-display" @scroll="checkScrollDirection">
     <h2 v-show="$route.path !== '/'">{{ $route.name }}</h2>
     <router-view />
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return { lastScrollPosition: 0 };
+  },
+
+  methods: {
+    checkScrollDirection(f) {
+      let hideFooter = false;
+      var scrollTop = f.target.scrollTop;
+      if (scrollTop > this.lastScrollPosition && scrollTop >= 10) {
+        hideFooter = true;
+      } else {
+        hideFooter = false;
+      }
+      this.$emit("hideFooter", hideFooter);
+      this.lastScrollPosition = scrollTop;
+    },
+  },
+};
 </script>
 
 <style lang='scss' scoped>
