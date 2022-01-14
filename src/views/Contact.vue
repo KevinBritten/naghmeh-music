@@ -1,9 +1,15 @@
 <template>
   <div>
-    <p>
-      For booking inquiries or any other information, email
-      {{ email }} or text {{ phoneNumber }}
-    </p>
+    <form>
+      <label for="name">Name</label>
+      <input />
+      <label for="email">Email</label>
+      <input />
+      <label for="message">Message</label>
+      <textarea></textarea>
+      <button type="button">SUBMIT</button>
+    </form>
+    <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
   </div>
 </template>
 
@@ -43,6 +49,47 @@ export default {
 <style scoped>
 p {
   margin-top: 50px;
-  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+}
+
+input {
+  max-width: 300px;
+  height: 40px;
+}
+
+textarea {
+  height: 140px;
+}
+
+textarea,
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px var(--c-footer-bg) solid;
+  border-radius: 5px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+button {
+  background-color: transparent;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 5px 10px 7px;
+}
+
+button:active {
+  background-color: var(--c-footer-bg);
+  color: white;
 }
 </style>

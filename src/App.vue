@@ -42,13 +42,13 @@ export default {
   name: "app",
   data() {
     return {
-      menuIsOpen: false
+      menuIsOpen: false,
     };
   },
   computed: {
     isHome() {
       return this.$route.path === "/";
-    }
+    },
   },
   components: {
     SiteHeader,
@@ -57,8 +57,8 @@ export default {
     Hamburger,
     HeaderLogo,
     Home,
-    SiteFooter
-  }
+    SiteFooter,
+  },
 };
 </script>
 
