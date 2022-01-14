@@ -1,6 +1,5 @@
 <template>
   <div class="merch-item">
-    <h3>{{ product.name }}</h3>
     <img
       class="merch-item__product-image"
       :alt="product.name"
@@ -14,6 +13,7 @@
       767px) 50vw, (min-width: 991px) 33vw, 100vw,"
       v-lazy="`${imageUrlFor(product.image)}`"
     />
+    <h3>{{ product.name }}</h3>
     <p v-if="product.details">{{ product.details }}</p>
 
     <p class="merch-item__price">
@@ -44,12 +44,19 @@ export default {
 <style lang="scss" scoped>
 @import ".././styles/mixins.scss";
 
+h3 {
+  margin-top: 10px;
+}
 .merch-item {
-  margin-bottom: 50px;
+  border: var(--c-footer-bg) 2px solid;
+  border-radius: 5px;
+  padding: 20px;
+
+  margin: 0 25px 50px;
   &__product-image {
-    height: 250px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    max-height: 350px;
   }
   &__price {
     margin-top: 10px;
@@ -72,14 +79,19 @@ export default {
 @include atTabletPortrait {
   .merch-item {
     padding: 25px;
-
-    width: 50%;
+    width: 40%;
+    margin: 0 10px 40px;
+    &__product-image {
+      width: 100%;
+      object-fit: contain;
+      max-height: 250px;
+    }
   }
 }
 
 @include atDesktop {
   .merch-item {
-    width: 33%;
+    width: 25%;
   }
 }
 </style>
