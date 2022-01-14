@@ -2,12 +2,12 @@
   <div>
     <form>
       <label for="name">Name</label>
-      <input />
+      <input v-model="formData.name" />
       <label for="email">Email</label>
-      <input />
+      <input v-model="formData.email" />
       <label for="message">Message</label>
-      <textarea></textarea>
-      <button type="button">SUBMIT</button>
+      <textarea v-model="formData.message"></textarea>
+      <button type="button" v-on:click="submit">SUBMIT</button>
     </form>
     <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
   </div>
@@ -15,13 +15,16 @@
 
 <script>
 import sanity from "../sanity";
+// import ContactForm from "../components/ContactForm.vue";
 
 const query = `*[_type == "information"]`;
 export default {
+  // components: { ContactForm },
   data() {
     return {
       email: "",
       phoneNumber: "",
+      formData: { name: "", email: "", message: "" },
     };
   },
   created() {
@@ -41,6 +44,9 @@ export default {
           this.error = error;
         }
       );
+    },
+    submit() {
+      const { name, email, message } = this.formData;
     },
   },
 };
