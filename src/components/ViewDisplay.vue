@@ -36,7 +36,7 @@ h2::after {
 
 @include atTabletPortrait {
   .view-display {
-    padding: 100px;
+    padding: 20px 60px;
   }
 }
 
