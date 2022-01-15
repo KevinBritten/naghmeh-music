@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
     <form>
       <label for="name">Name</label>
       <input v-model="formData.name" />
@@ -9,7 +10,6 @@
       <textarea v-model="formData.message"></textarea>
       <button type="button" v-on:click="submit">SUBMIT</button>
     </form>
-    <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
   </div>
 </template>
 
@@ -54,7 +54,7 @@ export default {
 
 <style scoped>
 p {
-  margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 form {
