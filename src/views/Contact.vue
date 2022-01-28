@@ -1,21 +1,31 @@
 <template>
   <div>
-    <p>
-      For booking inquiries or any other information, email
-      {{ email }} or text {{ phoneNumber }}
-    </p>
+    <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
+    <newsletter-signup></newsletter-signup>
+    <!-- <form>
+      <label for="name">Name</label>
+      <input v-model="formData.name" />
+      <label for="email">Email</label>
+      <input v-model="formData.email" />
+      <label for="message">Message</label>
+      <textarea v-model="formData.message"></textarea>
+      <button type="button" v-on:click="netlifyFunction">SUBMIT</button>
+    </form> -->
   </div>
 </template>
 
 <script>
 import sanity from "../sanity";
+import NewsletterSignup from "../components/NewsletterSignup.vue";
 
 const query = `*[_type == "information"]`;
 export default {
+  components: { NewsletterSignup },
   data() {
     return {
       email: "",
       phoneNumber: "",
+      formData: { name: "", email: "", message: "" },
     };
   },
   created() {
@@ -40,9 +50,50 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 p {
-  margin-top: 50px;
-  text-align: center;
+  margin-bottom: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+}
+
+input {
+  max-width: 300px;
+  height: 40px;
+}
+
+textarea {
+  height: 140px;
+}
+
+textarea,
+input {
+  margin-bottom: 10px;
+  width: 100%;
+  background-color: transparent;
+  border: 2px var(--c-footer-bg) solid;
+  border-radius: 5px;
+}
+
+label {
+  margin-bottom: 5px;
+}
+button {
+  background-color: transparent;
+  border: 1px black solid;
+  border-radius: 5px;
+  padding: 5px 10px 7px;
+}
+
+button:active {
+  background-color: var(--c-footer-bg);
+  color: white;
 }
 </style>
