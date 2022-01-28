@@ -9,6 +9,7 @@ const url = `https://${MC_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MC_AUDIENCE
 
 exports.handler = async function(event, context) {
   const email = event.queryStringParameters.email;
+  console.log("email: " + email);
   const data = {
     email_address: email,
     status: "subscribed"
@@ -31,7 +32,7 @@ exports.handler = async function(event, context) {
       statusCode = 400;
     });
   console.log("list:" + list);
-  console.log(statusCode);
+  console.log("statusCode: " + statusCode);
   return {
     statusCode,
     body: JSON.stringify({ message: "test" })
