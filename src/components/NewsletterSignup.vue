@@ -4,7 +4,7 @@
     <div v-else class="newsletter-signup">
       <p>Signup for the newsletter!</p>
       <form>
-        <input v-model="newsletterEmail" />
+        <input v-model="email" />
         <button type="button" v-on:click="submit($event)">SUBMIT</button>
       </form>
       <p v-if="formState === 'error'" class="newsletter-signup__error-message">
