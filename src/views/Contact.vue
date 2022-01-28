@@ -1,25 +1,26 @@
 <template>
   <div>
     <p>For all inquiries please contact Naghmeh at naghmehasong@gmail.com</p>
-    <form>
+    <newsletter-signup></newsletter-signup>
+    <!-- <form>
       <label for="name">Name</label>
       <input v-model="formData.name" />
       <label for="email">Email</label>
       <input v-model="formData.email" />
       <label for="message">Message</label>
       <textarea v-model="formData.message"></textarea>
-      <button type="button" v-on:click="submit">SUBMIT</button>
-    </form>
+      <button type="button" v-on:click="netlifyFunction">SUBMIT</button>
+    </form> -->
   </div>
 </template>
 
 <script>
 import sanity from "../sanity";
-// import ContactForm from "../components/ContactForm.vue";
+import NewsletterSignup from "../components/NewsletterSignup.vue";
 
 const query = `*[_type == "information"]`;
 export default {
-  // components: { ContactForm },
+  components: { NewsletterSignup },
   data() {
     return {
       email: "",
@@ -45,14 +46,11 @@ export default {
         }
       );
     },
-    submit() {
-      const { name, email, message } = this.formData;
-    },
   },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 p {
   margin-bottom: 30px;
 }

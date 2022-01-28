@@ -1,8 +1,10 @@
 .DS_Store
 node_modules/
 dist/
+build/
 npm-debug.log
 yarn-error.log
+.env
 
 # Editor directories and files
 .idea
@@ -10,3 +12,6 @@ yarn-error.log
 *.ntvs*
 *.njsproj
 *.sln
+
+# Local Netlify folder
+.netlify
