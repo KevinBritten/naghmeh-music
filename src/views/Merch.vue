@@ -50,6 +50,7 @@ export default {
   .merch-page {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
   }
 }
 </style>
