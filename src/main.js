@@ -7,7 +7,7 @@ import Loading from "./assets/icons/loading.svg";
 import { routes } from "./routes";
 
 import "normalize.css";
-import "./styles/global.sass";
+import "./styles/global.css";
 import "./styles/fonts.sass";
 import "./styles/mixins.scss";
 

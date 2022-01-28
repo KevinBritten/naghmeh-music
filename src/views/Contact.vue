@@ -92,7 +92,7 @@ button {
   padding: 5px 10px 7px;
 }
 
-button:active {
+button:hover {
   background-color: var(--c-footer-bg);
   color: white;
 }

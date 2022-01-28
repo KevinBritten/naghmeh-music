@@ -5,7 +5,7 @@
       <p>Signup for the newsletter!</p>
       <form>
         <input v-model="newsletterEmail" />
-        <button type="button" v-on:click="submit">SUBMIT</button>
+        <button type="button" v-on:click="submit($event)">SUBMIT</button>
       </form>
       <p v-if="formState === 'error'" class="newsletter-signup__error-message">
         Sorry, there was an error submitting your email. This could be because
@@ -27,7 +27,8 @@ export default {
     };
   },
   methods: {
-    async submit() {
+    async submit(event) {
+      event.preventDefault();
       const results = await axios
         .get("/.netlify/functions/mailchimp", {
           params: { email: this.newsletterEmail },
@@ -74,11 +75,17 @@ export default {
     border: 1px black solid;
     border-radius: 5px;
     padding: 5px 10px 7px;
+    transition: background-color 150ms;
+  }
+
+  & button:active,
+  button:hover {
+    background-color: var(--c-footer-bg);
+    color: white;
   }
 
   & button:active {
-    background-color: var(--c-footer-bg);
-    color: white;
+    color: black;
   }
   &__error-message {
     cursor: default;
