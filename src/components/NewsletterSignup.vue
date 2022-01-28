@@ -1,6 +1,11 @@
 <template>
   <div>
-    <p v-if="formState === 'submitted'">Submitted!</p>
+    <p
+      class="newsletter-signup__success-message"
+      v-if="formState === 'submitted'"
+    >
+      Submitted!
+    </p>
     <div v-else class="newsletter-signup">
       <p>Signup for the newsletter!</p>
       <form>
@@ -87,11 +92,20 @@ export default {
   & button:active {
     color: black;
   }
+  &__success-message,
   &__error-message {
-    cursor: default;
-    background-color: rgb(220, 53, 69);
     padding: 10px 20px;
     font-size: 1rem;
+    border-radius: 5px;
+    display: inline-block;
+  }
+
+  &__error-message {
+    background-color: var(--c-error);
+  }
+
+  &__success-message {
+    background-color: var(--c-success);
   }
 }
 </style>
