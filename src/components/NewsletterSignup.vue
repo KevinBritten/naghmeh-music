@@ -31,7 +31,7 @@ export default {
       event.preventDefault();
       const results = await axios
         .get("/.netlify/functions/mailchimp", {
-          params: { email: this.newsletterEmail },
+          params: { email: this.email },
         })
         .then(() => {
           this.formState = "submitted";
