@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div
+    <!-- <div
       class="fullscreen-icon-container"
       :class="{
         'fullscreen-icon-container--fullscreen': fullscreen,
@@ -24,32 +24,39 @@
           d="M4 12 L4 4 12 4 M20 4 L28 4 28 12 M4 20 L4 28 12 28 M28 20 L28 28 20 28"
         />
       </svg>
-    </div>
+    </div> -->
     <!-- <div
       class="photo-container"
       ref="photoContainer"
       :class="{ 'photo-container--fullscreen': fullscreen }"
     > -->
     <div
-      class="photo-container"
-      :class="{ 'photo-container--fullscreen': fullscreen }"
+      class="album-container"
+      v-for="album in photoAlbums"
+      :key="album.title"
     >
-      <img
-        v-for="photo in photos"
-        :key="photo.name"
-        :alt="photo.name"
-        :data-srcset="`${imageUrlFor(photo.image).width(300)} 300w,
+      <h2>{{ album.title }}</h2>
+      <div
+        class="photo-container"
+        :class="{ 'photo-container--fullscreen': fullscreen }"
+      >
+        <img
+          v-for="photo in album.images"
+          :key="photo.name"
+          :alt="photo.name"
+          :data-srcset="`${imageUrlFor(photo.image).width(300)} 300w,
                     ${imageUrlFor(photo.image).width(600)} 600w,
                     ${imageUrlFor(photo.image).width(800)} 800w,          
                     ${imageUrlFor(photo.image).width(1200)} 1200w,          
                     ${imageUrlFor(photo.image).width(1600)} 1600w,          
                     ${imageUrlFor(photo.image).width(2000)} 2000w,          
            `"
-        sizes="(min-width: 767px) 50vw,
+          sizes="(min-width: 767px) 50vw,
            (min-width: 991px) 33vw,
            100vw,"
-        v-lazy="`${imageUrlFor(photo.image)}`"
-      />
+          v-lazy="`${imageUrlFor(photo.image)}`"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -59,18 +66,18 @@ import sanity from "../sanity";
 import imageUrlBuilder from "@sanity/image-url";
 const imageBuilder = imageUrlBuilder(sanity);
 
-const query = `*[_type == "photos"]`;
+const query = `*[_type == "photoAlbums"]`;
 
 export default {
   data() {
     return {
       fullscreen: false,
-      photos: [],
+      photoAlbums: [],
     };
   },
   created() {
     this.fetchData().then((payload) => {
-      this.photos = payload;
+      this.photoAlbums = payload;
     });
   },
   methods: {
@@ -124,8 +131,8 @@ export default {
       this.error = this.post = null;
 
       return sanity.fetch(query).then(
-        (photos) => {
-          return photos;
+        (photoAlbums) => {
+          return photoAlbums;
         },
         (error) => {
           this.error = error;
@@ -164,6 +171,10 @@ export default {
   width: 100%;
   height: 100%;
 }
+.album-container {
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
 .photo-container {
   margin: 15px 0;
   display: flex;
@@ -187,13 +198,18 @@ export default {
 img {
   max-width: 100%;
   margin-bottom: 10px;
-  object-fit: cover;
+  object-fit: contain;
   min-height: 200px;
 }
 
 @include atTabletPortrait {
   img {
     width: 49%;
+  }
+}
+@include atDesktop {
+  img {
+    width: 30%;
   }
 }
 </style>
