@@ -31,6 +31,7 @@ h2 {
 iframe {
   height: 360px;
   width: 100%;
+  max-width: 640px;
   border: 0;
 }
 
@@ -41,6 +42,7 @@ iframe {
 @include atDesktop {
   iframe {
     height: 600px;
+    max-width: 1066px;
   }
 }
 </style>
