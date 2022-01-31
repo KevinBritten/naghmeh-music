@@ -3,7 +3,11 @@
     <button class="lightbox__close-button" @click="$emit('closeLightbox')">
       X
     </button>
-    <div class="lightbox__inner-container" @click.self="$emit('closeLightbox')">
+    <div
+      class="lightbox__inner-container"
+      @click.self="$emit('closeLightbox')"
+      v-touch:swipe="swipeHandler"
+    >
       <button
         class="lightbox__nav lightbox__nav--prev"
         @click="changeSlide(-1)"
@@ -66,6 +70,13 @@ export default {
       this.imageIndex =
         (this.imageIndex + direction + this.album.length) % this.album.length;
     },
+    swipeHandler(direction) {
+      if (direction === "left") {
+        this.changeSlide(-1);
+      } else if (direction === "right") {
+        this.changeSlide(1);
+      }
+    },
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
@@ -96,9 +107,10 @@ export default {
   align-items: center;
   z-index: 500;
   &__close-button {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
+    padding: 0;
     color: white;
     background: none;
     border: none;
