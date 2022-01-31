@@ -17,7 +17,7 @@
            (min-width: 991px) 33vw,
            100vw,"
       v-lazy="`${imageUrlFor(show.image)}`"
-    />
+    /><br />
     <a target="_blank" :href="facebookUrl" v-if="show.facebookUrl"
       ><img
         class="show-item__icon"
@@ -110,11 +110,15 @@ export default {
 @import ".././styles/mixins.scss";
 
 .show-item {
-  margin: 50px 0;
+  margin: 50px auto;
+  max-width: 800px;
+  padding: 10px;
+  border: var(--c-footer-bg) 2px solid;
+  border-radius: 5px;
   &__image {
-    width: 100%;
     max-height: 300px;
-    object-fit: cover;
+    max-width: 100%;
+    margin-bottom: 20px;
   }
   &__icon {
     width: 40px;

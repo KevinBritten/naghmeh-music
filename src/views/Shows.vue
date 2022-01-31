@@ -1,15 +1,14 @@
 <template>
   <div class="shows">
     <h3>Upcoming Shows</h3>
-    <hr />
     <ShowItem
       v-for="show in upcomingShowsSorted"
       :key="show.name"
       :show="show"
       :upcoming="true"
     />
-    <h3>Past Shows</h3>
     <hr />
+    <h3>Past Shows</h3>
     <ShowItem
       v-for="show in pastShowsSorted"
       :key="show.name"
@@ -30,7 +29,7 @@ export default {
   data() {
     return {
       upcomingShows: [],
-      pastShows: []
+      pastShows: [],
     };
   },
   computed: {
@@ -39,14 +38,14 @@ export default {
     },
     pastShowsSorted() {
       return this.pastShows.sort(this.sortByDate);
-    }
+    },
   },
   created() {
     const currentDate = new Date(Date.now());
-    this.fetchData().then(payload => {
+    this.fetchData().then((payload) => {
       //set shows to past or present once its the day after the show
       // const currentDate = new Date(Date.now());
-      payload.forEach(show => {
+      payload.forEach((show) => {
         if (this.showIsUpcoming(show, currentDate)) {
           this.upcomingShows.push(show);
         } else {
@@ -61,10 +60,10 @@ export default {
       this.error = this.post = null;
 
       return sanity.fetch(query).then(
-        shows => {
+        (shows) => {
           return shows;
         },
-        error => {
+        (error) => {
           this.error = error;
         }
       );
@@ -95,8 +94,8 @@ export default {
         }
       }
       return upcoming;
-    }
-  }
+    },
+  },
 };
 </script>
 
