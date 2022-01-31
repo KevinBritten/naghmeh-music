@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <news-item
-      v-for="(newsItem, index) in newsItems"
-      :key="index"
-      :newsItem="newsItem"
-    />
+  <div class="news-item-container">
+    <div v-for="(newsItem, index) in newsItems" :key="index">
+      <news-item :newsItem="newsItem" />
+      <hr />
+    </div>
   </div>
 </template>
 
@@ -46,4 +45,12 @@ export default {
 </script>
 
 <style lang='scss' scoped>
+@import ".././styles/mixins.scss";
+
+@include atDesktop {
+  .news-item-container {
+    width: 800px;
+    margin: auto;
+  }
+}
 </style>

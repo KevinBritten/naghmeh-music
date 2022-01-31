@@ -1,10 +1,15 @@
 <template>
-  <a target="_blank" :href="newsItem.link" class="news-item">
-    <h2>{{ newsItem.headline }}</h2>
-    <h4>-{{ newsItem.publication }}</h4>
-    <img :src="`${imageUrlFor(newsItem.logo)}`" />
-    <p>{{ newsItem.publishDate }}</p>
-  </a>
+  <div class="news-item">
+    <a target="_blank" :href="newsItem.link">
+      <img :src="`${imageUrlFor(newsItem.logo)}`" />
+      <div class="news-item__info-container">
+        <h2>{{ newsItem.headline }}</h2>
+        <span class="news-item__small-text">-{{ newsItem.publication }}</span
+        ><br />
+        <span class="news-item__small-text">{{ newsItem.publishDate }}</span>
+      </div>
+    </a>
+  </div>
 </template>
 
 <script>
@@ -25,19 +30,33 @@ export default {
 
 <style lang='scss' scoped>
 .news-item {
-  margin: 10px auto;
-  padding: 10px;
-  display: block;
-  &:visited {
-    color: black;
-  }
-  &:hover {
-    background-color: black;
+  &:hover,
+  :active {
+    background-color: var(--c-footer-bg);
     color: white;
   }
+  & a {
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:visited {
+      color: black;
+    }
+  }
   & img {
-    max-width: 100px;
+    max-width: 80px;
     max-height: 100px;
+    object-fit: contain;
+    margin-right: 20px;
+  }
+  &__info-container {
+    width: 300px;
+  }
+  &__small-text {
+    font-size: 0.8rem;
   }
 }
 </style>
