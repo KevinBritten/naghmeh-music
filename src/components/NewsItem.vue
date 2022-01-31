@@ -27,7 +27,14 @@ export default {
 .news-item {
   margin: 10px auto;
   padding: 10px;
-
+  display: block;
+  &:visited {
+    color: black;
+  }
+  &:hover {
+    background-color: black;
+    color: white;
+  }
   & img {
     max-width: 100px;
     max-height: 100px;
