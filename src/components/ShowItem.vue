@@ -6,7 +6,7 @@
       class="show-item__image"
       v-if="show.image"
       :alt="show.name"
-      :data-srcset="`${imageUrlFor(show.image).width(300)} 300w,
+      :srcset="`${imageUrlFor(show.image).width(300)} 300w,
                     ${imageUrlFor(show.image).width(600)} 600w,
                     ${imageUrlFor(show.image).width(800)} 800w,          
                     ${imageUrlFor(show.image).width(1200)} 1200w,          
@@ -16,7 +16,8 @@
       sizes="(min-width: 767px) 50vw,
            (min-width: 991px) 33vw,
            100vw,"
-      v-lazy="`${imageUrlFor(show.image)}`"
+      :src="`${imageUrlFor(show.image)}`"
+      loading="lazy"
     /><br />
     <a target="_blank" :href="facebookUrl" v-if="show.facebookUrl"
       ><img
@@ -106,7 +107,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang='scss' scoped>
 @import ".././styles/mixins.scss";
 
 .show-item {

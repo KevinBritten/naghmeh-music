@@ -3,7 +3,7 @@
     <img
       class="merch-item__product-image"
       :alt="product.name"
-      :data-srcset="`${imageUrlFor(product.image).width(300)}
+      :srcset="`${imageUrlFor(product.image).width(300)}
       300w, ${imageUrlFor(product.image).width(600)} 600w,
       ${imageUrlFor(product.image).width(800)} 800w,
       ${imageUrlFor(product.image).width(1200)} 1200w,
@@ -11,7 +11,8 @@
       ${imageUrlFor(product.image).width(2000)} 2000w, `"
       sizes="(min-width:
       767px) 50vw, (min-width: 991px) 33vw, 100vw,"
-      v-lazy="`${imageUrlFor(product.image)}`"
+      :src="`${imageUrlFor(product.image)}`"
+      loading="lazy"
     />
     <h3>{{ product.name }}</h3>
     <p v-if="product.details">{{ product.details }}</p>
