@@ -5,7 +5,7 @@ import createSchema from "part:@sanity/base/schema-creator";
 import schemaTypes from "all:part:@sanity/base/schema-type";
 
 import videos from "./videos";
-import photos from "./photos";
+import photoAlbums from "./photoAlbums";
 import spotifyPlaylists from "./spotifyPlaylists";
 import products from "./products";
 import information from "./information";
@@ -19,7 +19,7 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     videos,
-    photos,
+    photoAlbums,
     spotifyPlaylists,
     products,
     information,
