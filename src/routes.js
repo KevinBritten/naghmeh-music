@@ -6,6 +6,7 @@ import Videos from "./views/Videos.vue";
 import Photos from "./views/Photos.vue";
 import Contact from "./views/Contact.vue";
 import Shows from "./views/Shows.vue";
+import Press from "./views/Press.vue";
 
 export const routes = [
   { path: "/", name: "home", component: Home },
@@ -16,5 +17,6 @@ export const routes = [
   { path: "/videos", name: "videos", component: Videos },
   { path: "/photos", name: "photos", component: Photos },
   { path: "/contact", name: "contact", component: Contact },
-  { path: "/shows", name: "shows", component: Shows }
+  { path: "/shows", name: "shows", component: Shows },
+  { path: "/press", name: "press", component: Press }
 ];

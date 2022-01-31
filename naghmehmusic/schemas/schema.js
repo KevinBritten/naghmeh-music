@@ -10,6 +10,7 @@ import spotifyPlaylists from "./spotifyPlaylists";
 import products from "./products";
 import information from "./information";
 import shows from "./shows";
+import newsItems from "./newsItems";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -23,7 +24,8 @@ export default createSchema({
     spotifyPlaylists,
     products,
     information,
-    shows
+    shows,
+    newsItems
     /* Your types here! */
   ])
 });
