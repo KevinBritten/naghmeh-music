@@ -111,6 +111,7 @@ img {
   max-width: 100%;
   margin: 10px 0;
   object-fit: contain;
+  cursor: pointer;
 }
 
 @include atTabletPortrait {
