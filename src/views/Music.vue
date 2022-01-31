@@ -26,12 +26,12 @@ export default {
   data() {
     return {
       albums: [],
-      features: []
+      features: [],
     };
   },
   created() {
-    this.fetchData().then(payload => {
-      payload.forEach(playlist => {
+    this.fetchData().then((payload) => {
+      payload.forEach((playlist) => {
         if (playlist.section == "feature") {
           this.features.push(playlist);
         } else {
@@ -45,15 +45,15 @@ export default {
       this.error = this.post = null;
 
       return sanity.fetch(query).then(
-        spotifyPlaylists => {
+        (spotifyPlaylists) => {
           return spotifyPlaylists;
         },
-        error => {
+        (error) => {
           this.error = error;
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -62,5 +62,12 @@ export default {
 
 p {
   margin-top: 20px;
+}
+
+@include atDesktop {
+  hr {
+    width: 800px;
+    margin: auto;
+  }
 }
 </style>
