@@ -1,5 +1,8 @@
 <template>
-  <div class="site-footer" :class="{ '--menu-open': menuIsOpen }">
+  <div
+    class="site-footer"
+    :class="{ '--menu-open': menuIsOpen, 'site-footer--hide': hideFooter }"
+  >
     <div class="site-footer__social-icons">
       <a
         target="_blank"
@@ -38,7 +41,9 @@
 </template>
 
 <script>
-export default { props: ["menuIsOpen"] };
+export default {
+  props: ["menuIsOpen", "hideFooter"],
+};
 </script>
 
 <style scoped lang="scss">
@@ -52,6 +57,11 @@ export default { props: ["menuIsOpen"] };
   height: 50px;
   background-color: var(--c-footer-bg);
   z-index: 50;
+  transition: transform 0.3s ease-out;
+
+  &--hide {
+    transform: translateY(100%);
+  }
 
   &__social-icons {
     display: flex;

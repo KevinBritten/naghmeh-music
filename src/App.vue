@@ -24,8 +24,11 @@
     ></site-header>
     <home v-if="isHome"></home>
 
-    <view-display v-else> </view-display>
-    <site-footer :class="{ '--menu-open': menuIsOpen }" />
+    <view-display v-else @hideFooter="hideShowFooter"> </view-display>
+    <site-footer
+      :class="{ '--menu-open': menuIsOpen }"
+      :hideFooter="hideFooter"
+    />
   </div>
 </template>
 
@@ -43,11 +46,19 @@ export default {
   data() {
     return {
       menuIsOpen: false,
+      showFooter: true,
+      hideFooter: false,
     };
   },
   computed: {
     isHome() {
       return this.$route.path === "/";
+    },
+  },
+  methods: {
+    hideShowFooter(hideFooter) {
+      console.log(hideFooter);
+      this.hideFooter = hideFooter;
     },
   },
   components: {
@@ -67,7 +78,7 @@ export default {
 
 #app {
   height: 100%;
-  padding: 70px 0 50px;
+  padding: 70px 0 0;
   overflow: hidden;
 }
 img {
