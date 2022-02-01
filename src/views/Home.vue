@@ -2,33 +2,31 @@
   <div class="home">
     <div class="home__title-container">
       <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
-      <p>{{ tagline }}</p>
+      <!-- <p>{{ tagline }}</p> -->
     </div>
     <div class="home__buttons-container">
       <router-link :to="button.target" tag="button">{{
         button.text
       }}</router-link>
-      <div class="home__mailing-list-container">
-        <input type="text" placeholder="join mailing list" />
-        <button>Submit</button>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import NewsletterSignup from "../components/NewsletterSignup.vue";
 import sanity from "../sanity";
 
 const query = `*[_type == "information"]`;
 export default {
+  components: { NewsletterSignup },
   data() {
     return {
       tagline: "",
-      button: {}
+      button: {},
     };
   },
   created() {
-    this.fetchData().then(payload => {
+    this.fetchData().then((payload) => {
       this.tagline = payload.tagline;
       this.button = payload.homepageButton;
     });
@@ -37,15 +35,15 @@ export default {
     fetchData() {
       this.error = this.post = null;
       return sanity.fetch(query).then(
-        information => {
+        (information) => {
           return information[0];
         },
-        error => {
+        (error) => {
           this.error = error;
         }
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -53,19 +51,24 @@ export default {
 @import ".././styles/mixins.scss";
 
 button {
+  margin: auto;
   font-size: 1.5rem;
   text-transform: uppercase;
-  padding: 5px 5px 7px;
+  padding: 5px 15px 7px;
+}
+button:active,
+button:hover {
+  border-radius: 5px;
+
+  background-color: var(--c-footer-bg);
+  color: white;
 }
 
 .home {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  display: block;
   height: 100%;
   color: white;
-  align-items: center;
-  justify-content: space-between;
   padding-top: 20px;
 
   &__title-container {
@@ -86,22 +89,6 @@ button {
     display: flex;
     flex-direction: column;
   }
-  &__mailing-list-container {
-    display: flex;
-
-    input {
-      line-height: 1rem;
-      display: block;
-      margin-right: 10px;
-      padding: 0 10px;
-      width: 300px;
-    }
-    button {
-      margin: 0;
-      background: transparent;
-      color: white;
-    }
-  }
 }
 p {
   padding-left: 20px;
@@ -115,10 +102,10 @@ p {
 }
 @include atDesktop {
   .home {
-    padding: 20px 20px 0px;
+    padding: 50px 20px 0px;
     &__title-container {
       img {
-        width: 500px;
+        width: 600px;
       }
     }
   }
