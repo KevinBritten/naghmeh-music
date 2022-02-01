@@ -3,10 +3,10 @@
     <h4>{{ show.name }}</h4>
     <p>{{ parsedDate }}</p>
     <img
-      class="show-item__image"
+      class="show-item__image lazyload"
       v-if="show.image"
       :alt="show.name"
-      :srcset="`${imageUrlFor(show.image).width(300)} 300w,
+      :data-srcset="`${imageUrlFor(show.image).width(300)} 300w,
                     ${imageUrlFor(show.image).width(600)} 600w,
                     ${imageUrlFor(show.image).width(800)} 800w,          
                     ${imageUrlFor(show.image).width(1200)} 1200w,          
@@ -16,7 +16,7 @@
       sizes="(min-width: 767px) 50vw,
            (min-width: 991px) 33vw,
            100vw,"
-      :src="`${imageUrlFor(show.image)}`"
+      :data-src="`${imageUrlFor(show.image)}`"
       loading="lazy"
     /><br />
     <a target="_blank" :href="facebookUrl" v-if="show.facebookUrl"

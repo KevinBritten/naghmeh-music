@@ -9,7 +9,7 @@
       <BlockContent :blocks="getCurrentBlock(index)" />
       <img
         :alt="images[index].name"
-        :srcset="`${imageUrlFor(images[index].image).width(300)} 300w,
+        :data-srcset="`${imageUrlFor(images[index].image).width(300)} 300w,
                     ${imageUrlFor(images[index].image).width(600)} 600w,
                     ${imageUrlFor(images[index].image).width(
                       800
@@ -24,9 +24,9 @@
                       2000
                     )} 2000w,          
            `"
-        sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
-        :src="`${imageUrlFor(images[index].image)}`"
-        loading="lazy"
+        data-sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
+        :data-src="`${imageUrlFor(images[index].image)}`"
+        class="lazyload"
       />
     </div>
   </div>
