@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import VueRouter from "vue-router";
 import Vue2TouchEvents from "vue2-touch-events";
+import "lazysizes";
 
 import { routes } from "./routes";
 

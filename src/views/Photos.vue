@@ -17,7 +17,8 @@
         class="photo-container"
         :class="{ 'photo-container--fullscreen': fullscreen }"
       >
-        <img
+        <!-- <img
+          class="lazyload"
           v-for="(photo, index) in album.images"
           :key="photo.name"
           :alt="photo.name"
@@ -29,8 +30,24 @@
                     ${imageUrlFor(photo.image).width(2000)} 2000w,          
            `"
           sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
-          :src="`${imageUrlFor(photo.image)}`"
+          :data-src="`${imageUrlFor(photo.image)}`"
           loading="lazy"
+          @click="openLightbox(index, albumIndex)"
+        /> -->
+        <img
+          class="lazyload"
+          v-for="(photo, index) in album.images"
+          :key="photo.name"
+          :alt="photo.name"
+          :data-src="`${imageUrlFor(photo.image)}`"
+          data-sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
+          :data-srcset="`${imageUrlFor(photo.image).width(300)} 300w,
+                    ${imageUrlFor(photo.image).width(600)} 600w,
+                    ${imageUrlFor(photo.image).width(800)} 800w,          
+                    ${imageUrlFor(photo.image).width(1200)} 1200w,          
+                    ${imageUrlFor(photo.image).width(1600)} 1600w,          
+                    ${imageUrlFor(photo.image).width(2000)} 2000w,          
+           `"
           @click="openLightbox(index, albumIndex)"
         />
       </div>
