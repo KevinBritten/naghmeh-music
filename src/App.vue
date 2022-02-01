@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/11.+Naghmeh+Portrait+Illuminated.jpg" />
+    <div class="bg-image-container">
+      <img src="./assets/bg-photo-main.jpg" />
+    </div>
     <site-header
       class="site-header"
       :menu-is-open="menuIsOpen"
@@ -80,18 +82,26 @@ export default {
   padding: 70px 0 0;
   overflow: hidden;
 }
-img {
+
+.bg-image-container {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: -10;
-  height: 100%;
   width: 100%;
-  object-fit: contain;
-  object-position: right;
   background-color: var(--c-dark-blue);
+  & img {
+    z-index: -10;
+    width: 400px;
+    max-width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-left: auto;
+    display: block;
+    object-position: bottom;
+  }
 }
 .center-content {
   flex: 1 1 0;
@@ -112,8 +122,8 @@ img {
 }
 
 @include atDesktop {
-  img {
-    padding: 100px 50px 0 0;
+  .bg-image-container {
+    padding: 100px 200px 50px 0;
   }
 }
 </style>

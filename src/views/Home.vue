@@ -68,10 +68,12 @@ button:hover {
 
 .home {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   color: white;
-  padding-top: 20px;
+  padding: 20px 0;
 
   &__title-container {
     width: 100%;
@@ -104,7 +106,7 @@ p {
 }
 @include atDesktop {
   .home {
-    padding: 50px 20px 0px;
+    padding: 50px 20px 100px;
     &__title-container {
       img {
         width: 600px;
