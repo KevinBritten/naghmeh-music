@@ -57,7 +57,6 @@ export default {
   },
   methods: {
     hideShowFooter(hideFooter) {
-      console.log(hideFooter);
       this.hideFooter = hideFooter;
     },
   },

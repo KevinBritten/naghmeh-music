@@ -97,7 +97,6 @@ export default {
     parsedDate() {
       //TODO: allow for french
       const date = new Date(this.show.date);
-      console.log(date.getMonth());
       return `${
         this.months.english[date.getMonth()]
       } ${date.getDate()} ${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
