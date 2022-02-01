@@ -55,6 +55,8 @@ button {
   font-size: 1.5rem;
   text-transform: uppercase;
   padding: 5px 15px 7px;
+  transition: background-color 150ms;
+  border-radius: 5px;
 }
 button:active,
 button:hover {
