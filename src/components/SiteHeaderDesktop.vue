@@ -2,9 +2,14 @@
   <div class="site-header">
     <div class="site-header__link-container">
       <div v-for="route in routes" :key="route.path">
-        <router-link :to="route.path ? route.path : '/'">{{
-          route.name
-        }}</router-link>
+        <router-link
+          :to="{
+            path: route.path
+              ? `/${route.name}/${$route.params.lang}`
+              : `/home/${$route.params.lang}`,
+          }"
+          >{{ route.name }}</router-link
+        >
       </div>
     </div>
   </div>

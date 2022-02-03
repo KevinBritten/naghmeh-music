@@ -2,7 +2,7 @@
   <div class="site-header">
     <div class="site-header__link-container" @click="closeMenu">
       <div v-for="route in routes" :key="route.path">
-        <router-link :to="route.path ? route.path : '/'">{{
+        <router-link :to="route.path ? route.name : '/'">{{
           route.name
         }}</router-link>
       </div>

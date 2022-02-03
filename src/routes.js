@@ -9,14 +9,14 @@ import Shows from "./views/Shows.vue";
 import Press from "./views/Press.vue";
 
 export const routes = [
-  { path: "/", name: "home", component: Home },
-  { path: "/home", redirect: { name: "home" } },
-  { path: "/about", name: "about", component: About },
-  { path: "/music", name: "music", component: Music },
-  { path: "/merch", name: "merch", component: Merch },
-  { path: "/videos", name: "videos", component: Videos },
-  { path: "/photos", name: "photos", component: Photos },
-  { path: "/contact", name: "contact", component: Contact },
-  { path: "/shows", name: "shows", component: Shows },
-  { path: "/press", name: "press", component: Press }
+  { path: "/:lang", name: "home", component: Home },
+  { path: "/home/:lang?", redirect: { name: "home" } },
+  { path: "/about/:lang?", name: "about", component: About },
+  { path: "/music/:lang?", name: "music", component: Music },
+  { path: "/merch/:lang?", name: "merch", component: Merch },
+  { path: "/videos/:lang?", name: "videos", component: Videos },
+  { path: "/photos/:lang?", name: "photos", component: Photos },
+  { path: "/contact/:lang?", name: "contact", component: Contact },
+  { path: "/shows/:lang?", name: "shows", component: Shows },
+  { path: "/press/:lang?", name: "press", component: Press }
 ];

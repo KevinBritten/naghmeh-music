@@ -1,6 +1,8 @@
 <template>
   <div class="view-display" @scroll="checkScrollDirection">
-    <h2 v-show="$route.path !== '/'">{{ $route.name }}</h2>
+    <h2 v-show="$route.name !== 'home'">
+      {{ $route.name }}
+    </h2>
     <router-view />
   </div>
 </template>

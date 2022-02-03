@@ -54,7 +54,7 @@ export default {
   },
   computed: {
     isHome() {
-      return this.$route.path === "/";
+      return this.$route.name === "home";
     },
   },
   methods: {
