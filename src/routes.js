@@ -9,8 +9,8 @@ import Shows from "./views/Shows.vue";
 import Press from "./views/Press.vue";
 
 export const routes = [
-  { path: "/:lang", name: "home", component: Home },
-  { path: "/home/:lang?", redirect: { name: "home" } },
+  { path: "/", redirect: { name: "home" } },
+  { path: "/home/:lang?", name: "home", component: Home },
   { path: "/about/:lang?", name: "about", component: About },
   { path: "/music/:lang?", name: "music", component: Music },
   { path: "/merch/:lang?", name: "merch", component: Merch },

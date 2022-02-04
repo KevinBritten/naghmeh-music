@@ -12,6 +12,10 @@
         >
       </div>
     </div>
+    <div class="site-header__lang-buttons-container">
+      <a :href="`/${$route.name}/fr`">FR</a
+      ><a :href="`/${$route.name}/en`">EN</a>
+    </div>
   </div>
 </template>
 
@@ -39,14 +43,25 @@ export default {
     width: 100%;
     height: 70px;
     background-color: black;
-    display: block;
-    padding: 10px 140px;
+    display: flex;
+    padding: 10px 40px 10px 140px;
     border-bottom: rgb(12, 12, 12) 1px solid;
     &__link-container {
       display: flex;
       justify-content: space-around;
+      flex-grow: 1;
       align-items: center;
       height: 100%;
+    }
+    &__lang-buttons-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 20px 0 80px;
+      & a {
+        margin-left: 10px;
+        cursor: pointer;
+      }
     }
   }
   a {
