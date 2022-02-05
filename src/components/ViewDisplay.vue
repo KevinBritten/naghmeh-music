@@ -1,7 +1,7 @@
 <template>
   <div class="view-display" @scroll="checkScrollDirection">
     <h2 v-show="$route.name !== 'home'">
-      {{ $route.name }}
+      {{ $route.params.lang === "fr" ? $route.meta.frenchName : $route.name }}
     </h2>
     <router-view />
   </div>

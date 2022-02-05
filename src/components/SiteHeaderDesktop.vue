@@ -8,7 +8,9 @@
               ? `/${route.name}/${$route.params.lang}`
               : `/home/${$route.params.lang}`,
           }"
-          >{{ route.name }}</router-link
+          >{{
+            $route.params.lang === "fr" ? route.meta.frenchName : route.name
+          }}</router-link
         >
       </div>
     </div>
@@ -72,7 +74,7 @@ export default {
     text-transform: uppercase;
     width: 100%;
     text-align: center;
-    margin: 10px 0;
+    margin: 10px 10px;
   }
 }
 </style>
