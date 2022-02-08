@@ -1,6 +1,6 @@
 <template>
-  <div class="site-header">
-    <div class="site-header__link-container">
+  <div class="site-menu" :class="{ 'site-menu--open': menuIsOpen }">
+    <div class="site-menu__link-container" :class="{}">
       <div v-for="route in routes" :key="route.path">
         <router-link
           :to="{
@@ -14,7 +14,7 @@
         >
       </div>
     </div>
-    <div class="site-header__lang-buttons-container">
+    <div class="site-menu__lang-buttons-container">
       <a :href="`/${$route.name}/fr`" v-if="$route.params.lang === 'en'">FR</a
       ><a :href="`/${$route.name}/en`" v-else>EN</a>
     </div>
@@ -23,11 +23,18 @@
 
 <script>
 export default {
+  props: ["menuIsOpen"],
+
   computed: {
     routes() {
       return this.$router.getRoutes().filter((r) => {
         return r.name;
       });
+    },
+    methods: {
+      closeMenu() {
+        this.$emit("close-menu");
+      },
     },
   },
 };
@@ -35,24 +42,61 @@ export default {
 
 <style  lang="scss" scoped >
 @import ".././styles/mixins.scss";
-.site-header {
+.site-menu {
   display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  flex-direction: column;
+  background-color: black;
+  padding: 75px 0 100px;
+  overflow: auto;
+  &--open {
+    display: flex;
+  }
+  &__link-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: auto;
+  }
+  &__lang-buttons-container {
+    padding-top: 20px;
+  }
+}
+a {
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 15px 10px;
+}
+@include atTabletPortrait {
+  .site-menu {
+    justify-content: center;
+  }
+  a {
+    font-size: 1.7rem;
+  }
 }
 @include atDesktop {
-  .site-header {
-    position: fixed;
-    top: 0;
+  .site-menu {
     width: 100%;
     height: 70px;
-    background-color: black;
     display: flex;
+    flex-direction: row;
     padding: 10px 40px 10px 140px;
     border-bottom: rgb(12, 12, 12) 1px solid;
+    overflow: hidden;
     &__link-container {
-      display: flex;
+      flex-direction: row;
       justify-content: space-around;
       flex-grow: 1;
-      align-items: center;
       height: 100%;
     }
     &__lang-buttons-container {
@@ -67,14 +111,8 @@ export default {
     }
   }
   a {
-    display: block;
-    color: white;
     font-size: 1.2rem;
-    text-decoration: none;
-    text-transform: uppercase;
     width: 100%;
-    text-align: center;
-    margin: 10px 10px;
   }
 }
 </style>

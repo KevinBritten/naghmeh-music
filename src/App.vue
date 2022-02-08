@@ -3,29 +3,18 @@
     <div class="bg-image-container">
       <img src="./assets/bg-photo-main.jpg" />
     </div>
-    <site-header
-      class="site-header"
+    <site-menu
       :menu-is-open="menuIsOpen"
-      v-show="menuIsOpen"
       @close-menu="menuIsOpen = false"
-    ></site-header>
-    <site-header-desktop></site-header-desktop>
+    ></site-menu>
     <div :class="{ '--menu-open': menuIsOpen }" class="header-logo-container">
       <header-logo @close-menu="menuIsOpen = false" />
     </div>
-
     <hamburger
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
     />
-    <site-header
-      class="site-header"
-      :menu-is-open="menuIsOpen"
-      v-show="menuIsOpen"
-      @close-menu="menuIsOpen = false"
-    ></site-header>
     <home v-if="isHome"></home>
-
     <view-display v-else @hideFooter="hideShowFooter"> </view-display>
     <site-footer
       :class="{ '--menu-open': menuIsOpen }"
@@ -37,8 +26,7 @@
 <script>
 import Hamburger from "./components/Hamburger.vue";
 import HeaderLogo from "./components/HeaderLogo.vue";
-import SiteHeader from "./components/SiteHeader.vue";
-import SiteHeaderDesktop from "./components/SiteHeaderDesktop.vue";
+import SiteMenu from "./components/SiteMenu.vue";
 import ViewDisplay from "./components/ViewDisplay.vue";
 import Home from "./views/Home.vue";
 import SiteFooter from "./components/SiteFooter.vue";
@@ -63,8 +51,7 @@ export default {
     },
   },
   components: {
-    SiteHeader,
-    SiteHeaderDesktop,
+    SiteMenu,
     ViewDisplay,
     Hamburger,
     HeaderLogo,

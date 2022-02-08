@@ -1,6 +1,6 @@
 <template>
   <div @click="$emit('close-menu')">
-    <router-link :to="`/`">
+    <router-link :to="{ name: 'home', params: { lang: $route.params.lang } }">
       <img
         class="header-logo"
         src="../assets/naghmeh-old-logo-temp-resized.png"
