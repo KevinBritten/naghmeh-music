@@ -5,7 +5,8 @@
       :key="spotifyPlaylist.name"
       :mediaItem="spotifyPlaylist"
     />
-    <p>Naghmeh appears on:</p>
+    <p v-if="$route.params.lang === 'fr'">Naghmeh apparaît sur:</p>
+    <p v-else>Naghmeh appears on:</p>
     <hr />
     <media-item
       v-for="spotifyPlaylist in features"
