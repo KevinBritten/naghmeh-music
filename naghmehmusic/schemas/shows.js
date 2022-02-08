@@ -6,7 +6,19 @@ export default {
     {
       name: "name",
       title: "Name",
-      type: "string"
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English",
+          type: "string"
+        },
+        {
+          name: "fr",
+          title: "French",
+          type: "string"
+        }
+      ]
     },
     {
       name: "facebookUrl",
@@ -28,5 +40,13 @@ export default {
       title: "Image",
       type: "image"
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "name"
+    },
+    prepare(selection) {
+      return { title: selection.title.en };
+    }
+  }
 };

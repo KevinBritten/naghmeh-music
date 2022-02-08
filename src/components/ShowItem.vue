@@ -1,11 +1,11 @@
 <template>
   <div class="show-item">
-    <h4>{{ show.name }}</h4>
+    <h4>{{ show.name[lang] }}</h4>
     <p>{{ parsedDate }}</p>
     <img
       class="show-item__image lazyload"
       v-if="show.image"
-      :alt="show.name"
+      :alt="show.name[lang]"
       :data-srcset="`${imageUrlFor(show.image).width(300)} 300w,
                     ${imageUrlFor(show.image).width(600)} 600w,
                     ${imageUrlFor(show.image).width(800)} 800w,          
@@ -56,8 +56,21 @@ export default {
   data() {
     return {
       months: {
-        french: [],
-        english: [
+        fr: [
+          "Janvier",
+          "Février",
+          "Mars",
+          "Avril",
+          "Mai",
+          "Juin",
+          "Juillet",
+          "Août",
+          "Septembre",
+          "Octobre",
+          "Novembre",
+          "Décembre",
+        ],
+        en: [
           "January",
           "February",
           "March",
@@ -71,6 +84,7 @@ export default {
           "November",
           "December",
         ],
+        lang: "",
       },
     };
   },
@@ -79,6 +93,9 @@ export default {
     imageUrlFor(source) {
       return imageBuilder.image(source);
     },
+  },
+  created() {
+    this.lang = this.$route.params.lang;
   },
   computed: {
     facebookUrl() {
@@ -98,7 +115,7 @@ export default {
       //TODO: allow for french
       const date = new Date(this.show.date);
       return `${
-        this.months.english[date.getMonth()]
+        this.months[this.lang][date.getMonth()]
       } ${date.getDate()} ${date.getFullYear()} - ${date.getHours()}:${date.getMinutes()}`;
     },
   },

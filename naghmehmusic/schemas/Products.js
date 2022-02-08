@@ -58,7 +58,6 @@ export default {
       title: "name"
     },
     prepare(selection) {
-      console.log(selection);
       return { title: selection.title.en };
     }
   }
