@@ -14,11 +14,13 @@
       :src="`${imageUrlFor(product.image)}`"
       loading="lazy"
     />
-    <h3>{{ product.name }}</h3>
-    <p v-if="product.details">{{ product.details }}</p>
+    <h3>{{ product.name[$route.params.lang] }}</h3>
+    <p v-if="product.details">
+      {{ product.details[$route.params.lang] }}
+    </p>
 
     <p class="merch-item__price">
-      ${{ product.price }} on
+      ${{ product.price }} {{ $route.params.lang === "fr" ? "sur" : "on" }}
       <a :href="product.url" target="_blank"
         ><img
           class="merch-item__bandcamp-logo"

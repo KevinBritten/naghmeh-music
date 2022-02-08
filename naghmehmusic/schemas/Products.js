@@ -6,12 +6,36 @@ export default {
     {
       name: "name",
       title: "Name",
-      type: "string"
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English Name",
+          type: "string"
+        },
+        {
+          name: "fr",
+          title: "French Name",
+          type: "string"
+        }
+      ]
     },
     {
       name: "details",
       title: "Details",
-      type: "string"
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English",
+          type: "string"
+        },
+        {
+          name: "fr",
+          title: "French",
+          type: "string"
+        }
+      ]
     },
     {
       name: "price",
@@ -28,5 +52,14 @@ export default {
       title: "Image",
       type: "image"
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "name"
+    },
+    prepare(selection) {
+      console.log(selection);
+      return { title: selection.title.en };
+    }
+  }
 };
