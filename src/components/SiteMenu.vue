@@ -1,6 +1,6 @@
 <template>
   <div class="site-menu" :class="{ 'site-menu--open': menuIsOpen }">
-    <div class="site-menu__link-container" :class="{}">
+    <div class="site-menu__link-container" @click="closeMenu">
       <div v-for="route in routes" :key="route.path">
         <router-link
           :to="{
@@ -31,10 +31,10 @@ export default {
         return r.name;
       });
     },
-    methods: {
-      closeMenu() {
-        this.$emit("close-menu");
-      },
+  },
+  methods: {
+    closeMenu() {
+      this.$emit("close-menu");
     },
   },
 };
