@@ -4,7 +4,7 @@
       class="newsletter-signup__success-message"
       v-if="formState === 'submitted'"
     >
-      Submitted!
+      {{ submmittedMessage[lang] }}
     </p>
     <div v-else class="newsletter-signup">
       <p>{{ signupMessage[lang] }}</p>
@@ -42,6 +42,8 @@ export default {
         fr: "ENVOYER",
         en: "SUBMIT",
       },
+      submmittedMessage: { fr: "Envoyé!", en: "Submitted!" },
+
       lang: "",
     };
   },
