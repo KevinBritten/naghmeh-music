@@ -15,8 +15,8 @@
       </div>
     </div>
     <div class="site-header__lang-buttons-container">
-      <a :href="`/${$route.name}/fr`">FR</a
-      ><a :href="`/${$route.name}/en`">EN</a>
+      <a :href="`/${$route.name}/fr`" v-if="$route.params.lang === 'en'">FR</a
+      ><a :href="`/${$route.name}/en`" v-else>EN</a>
     </div>
   </div>
 </template>
