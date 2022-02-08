@@ -9,7 +9,9 @@
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     ></iframe>
-    <p v-if="videoItem.subtitle">{{ videoItem.subtitle }}</p>
+    <p v-if="videoItem.subtitle">
+      {{ videoItem.subtitle[$route.params.lang] }}
+    </p>
   </div>
 </template>
 

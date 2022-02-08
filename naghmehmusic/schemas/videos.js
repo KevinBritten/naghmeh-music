@@ -11,7 +11,19 @@ export default {
     {
       name: "subtitle",
       title: "Subtitle",
-      type: "string"
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English",
+          type: "string"
+        },
+        {
+          name: "fr",
+          title: "French",
+          type: "string"
+        }
+      ]
     },
     {
       name: "code",
