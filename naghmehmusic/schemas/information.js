@@ -1,8 +1,13 @@
 export default {
   name: "information",
-  title: "Information",
+  title: "Information (edit documents only)",
   type: "document",
   fields: [
+    {
+      name: "language",
+      title: "Language",
+      type: "string"
+    },
     {
       name: "tagline",
       title: "Tagline",
