@@ -7,14 +7,15 @@
       Submitted!
     </p>
     <div v-else class="newsletter-signup">
-      <p>Signup for the newsletter!</p>
+      <p>{{ signupMessage[lang] }}</p>
       <form>
         <input v-model="email" />
-        <button type="button" v-on:click="submit($event)">SUBMIT</button>
+        <button type="button" v-on:click="submit($event)">
+          {{ submitMessage[lang] }}
+        </button>
       </form>
       <p v-if="formState === 'error'" class="newsletter-signup__error-message">
-        Sorry, there was an error submitting your email. This could be because
-        you've already signed up.
+        {{ errorMessage[lang] }}
       </p>
     </div>
   </div>
@@ -29,7 +30,23 @@ export default {
     return {
       email: "",
       formState: "initial",
+      errorMessage: {
+        en: "Sorry, there was an error submitting your email. This could be because you've already signed up.",
+        fr: "Désolé, une erreur s'est produite lors de l'envoi de votre e-mail. Cela pourrait être parce que vous êtes déjà inscrit.",
+      },
+      signupMessage: {
+        fr: "Enregistrez-vous pour recevoir le bulletin d'informations!",
+        en: "Signup for the newsletter!",
+      },
+      submitMessage: {
+        fr: "ENVOYER",
+        en: "SUBMIT",
+      },
+      lang: "",
     };
+  },
+  created() {
+    this.lang = this.$route.params.lang;
   },
   methods: {
     async submit(event) {
