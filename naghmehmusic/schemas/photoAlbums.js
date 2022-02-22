@@ -6,11 +6,22 @@ export default {
   type: "document",
   fields: [
     orderRankField({ type: "photoAlbums" }),
-
     {
       name: "title",
       title: "Title",
-      type: "string"
+      type: "object",
+      fields: [
+        {
+          name: "en",
+          title: "English Title",
+          type: "string"
+        },
+        {
+          name: "fr",
+          title: "French Title",
+          type: "string"
+        }
+      ]
     },
     {
       name: "images",
@@ -68,7 +79,7 @@ export default {
     prepare(selection) {
       const { title, media } = selection;
       return {
-        title: title,
+        title: title.en,
         media: media[0].image
       };
     }

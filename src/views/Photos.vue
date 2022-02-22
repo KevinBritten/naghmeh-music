@@ -11,7 +11,7 @@
       v-for="(album, albumIndex) in photoAlbums"
       :key="album.title"
     >
-      <h2>{{ album.title }}</h2>
+      <h2>{{ album.title[$route.params.lang] }}</h2>
 
       <div class="photo-container">
         <img
