@@ -35,7 +35,7 @@
                       2000
                     )} 2000w,          
            `"
-        sizes="100vw,"
+        sizes="100vh,"
         :src="`${imageUrlFor(currentImage.image)}`"
         loading="lazy"
       />

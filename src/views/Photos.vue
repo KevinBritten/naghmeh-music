@@ -13,32 +13,12 @@
     >
       <h2>{{ album.title }}</h2>
 
-      <div
-        class="photo-container"
-        :class="{ 'photo-container--fullscreen': fullscreen }"
-      >
-        <!-- <img
-          class="lazyload"
-          v-for="(photo, index) in album.images"
-          :key="photo.name"
-          :alt="photo.name"
-          :srcset="`${imageUrlFor(photo.image).width(300)} 300w,
-                    ${imageUrlFor(photo.image).width(600)} 600w,
-                    ${imageUrlFor(photo.image).width(800)} 800w,          
-                    ${imageUrlFor(photo.image).width(1200)} 1200w,          
-                    ${imageUrlFor(photo.image).width(1600)} 1600w,          
-                    ${imageUrlFor(photo.image).width(2000)} 2000w,          
-           `"
-          sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
-          :data-src="`${imageUrlFor(photo.image)}`"
-          loading="lazy"
-          @click="openLightbox(index, albumIndex)"
-        /> -->
+      <div class="photo-container">
         <img
           class="lazyload"
           v-for="(photo, index) in album.images"
-          :key="photo.name"
-          :alt="photo.name"
+          :key="photo.imageName.name"
+          :alt="photo.imageName.name"
           :data-src="`${imageUrlFor(photo.image)}`"
           data-sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
           :data-srcset="`${imageUrlFor(photo.image).width(300)} 300w,
@@ -61,12 +41,11 @@ import sanity from "../sanity";
 import imageUrlBuilder from "@sanity/image-url";
 
 const imageBuilder = imageUrlBuilder(sanity);
-const query = `*[_type == "photoAlbums"]`;
+const query = `*[_type == "photoAlbums"]|order(orderRank)`;
 
 export default {
   data() {
     return {
-      fullscreen: false,
       photoAlbums: [],
       lightboxOpen: false,
       imageIndex: null,
