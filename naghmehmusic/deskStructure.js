@@ -6,9 +6,9 @@ export default () =>
   S.list()
     .title("Base")
     .items([
-      //   S.listItem("information"),
-      //   S.documentList("information"),
+      ,
       S.documentTypeListItem("information"),
+      S.documentTypeListItem("shows"),
 
       orderableDocumentListDeskItem({
         type: "photoAlbums",
@@ -17,5 +17,17 @@ export default () =>
       orderableDocumentListDeskItem({
         type: "newsItems",
         title: "News Items"
+      }),
+      orderableDocumentListDeskItem({
+        type: "products",
+        title: "Products"
+      }),
+      orderableDocumentListDeskItem({
+        type: "videos",
+        title: "Videos"
+      }),
+      orderableDocumentListDeskItem({
+        type: "spotifyPlaylists",
+        title: "Spotify Playlists"
       })
     ]);

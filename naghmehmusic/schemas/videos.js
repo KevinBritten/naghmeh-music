@@ -1,8 +1,12 @@
+import { orderRankField } from "@sanity/orderable-document-list";
+
 export default {
   name: "videos",
   title: "Youtube Videos",
   type: "document",
   fields: [
+    orderRankField({ type: "videos" }),
+
     {
       name: "name",
       title: "Name",

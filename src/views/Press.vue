@@ -11,7 +11,7 @@
 import sanity from "../sanity";
 import NewsItem from "../components/NewsItem.vue";
 
-const query = `*[_type == "newsItems"]`;
+const query = `*[_type == "newsItems"]|order(orderRank)`;
 
 export default {
   components: { NewsItem },
