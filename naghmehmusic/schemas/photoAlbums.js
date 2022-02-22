@@ -59,5 +59,18 @@ export default {
         }
       ]
     }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "title",
+      media: "images"
+    },
+    prepare(selection) {
+      const { title, media } = selection;
+      return {
+        title: title,
+        media: media[0].image
+      };
+    }
+  }
 };

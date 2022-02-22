@@ -8,7 +8,7 @@
 import VideoItem from "../components/VideoItem.vue";
 import sanity from "../sanity";
 
-const query = `*[_type == "videos"]`;
+const query = `*[_type == "videos"]|order(orderRank)`;
 
 export default {
   components: { VideoItem },

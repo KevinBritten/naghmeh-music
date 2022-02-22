@@ -96,10 +96,10 @@ export default {
   ],
   preview: {
     select: {
-      title: "name"
+      title: "language"
     },
     prepare(selection) {
-      return { title: "Edit This Document" };
+      return { title: "Edit This Document (" + selection.title + ")" };
     }
   }
 };

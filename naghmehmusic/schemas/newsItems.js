@@ -28,5 +28,11 @@ export default {
       type: "image"
     },
     { name: "link", title: "Link", type: "url" }
-  ]
+  ],
+  preview: {
+    select: {
+      title: "headline",
+      media: "logo"
+    }
+  }
 };

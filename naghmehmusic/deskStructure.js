@@ -6,7 +6,6 @@ export default () =>
   S.list()
     .title("Base")
     .items([
-      ,
       S.documentTypeListItem("information"),
       S.documentTypeListItem("shows"),
 

@@ -12,7 +12,7 @@
 import MerchItem from "../components/MerchItem.vue";
 import sanity from "../sanity";
 
-const query = `*[_type == "products"]`;
+const query = `*[_type == "products"]|order(orderRank)`;
 
 export default {
   components: { MerchItem },

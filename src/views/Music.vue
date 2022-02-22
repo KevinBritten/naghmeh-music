@@ -20,7 +20,7 @@
 import MediaItem from "../components/MediaItem.vue";
 import sanity from "../sanity";
 
-const query = `*[_type == "spotifyPlaylists"]`;
+const query = `*[_type == "spotifyPlaylists"]|order(orderRank)`;
 
 export default {
   components: { MediaItem },

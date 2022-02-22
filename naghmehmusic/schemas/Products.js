@@ -59,10 +59,11 @@ export default {
   ],
   preview: {
     select: {
-      title: "name"
+      title: "name",
+      media: "image"
     },
     prepare(selection) {
-      return { title: selection.title.en };
+      return { title: selection.title.en, media: selection.media };
     }
   }
 };
