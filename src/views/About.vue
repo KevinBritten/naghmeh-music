@@ -92,18 +92,20 @@ p {
 
 img {
   max-width: 100%;
+  max-height: 400px;
 }
 
 .about-item {
-  margin: 15px 0;
+  margin: 15px auto;
 }
 
 @include atTabletPortrait {
   .about-item {
     display: flex;
     align-items: center;
-    margin: 30px 0;
+    margin: 30px auto;
     flex-direction: row-reverse;
+    max-width: 800px;
 
     & p {
       margin-left: 40px;
@@ -123,7 +125,8 @@ img {
 }
 @include atDesktop {
   .about-item {
-    margin: 80px 0;
+    margin: 80px auto;
+    max-width: 1000px;
     & p {
       margin-left: 40px;
     }
