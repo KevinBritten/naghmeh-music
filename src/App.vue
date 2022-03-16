@@ -14,8 +14,12 @@
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
     />
-    <home v-if="isHome"></home>
-    <view-display v-else @hideFooter="hideShowFooter"> </view-display>
+    <transition v-if="isHome" name="fade" mode="out-in">
+      <home></home>
+    </transition>
+    <transition v-else name="fade" mode="out-in">
+      <view-display @hideFooter="hideShowFooter"> </view-display
+    ></transition>
     <site-footer
       :class="{ '--menu-open': menuIsOpen }"
       :hideFooter="hideFooter"
@@ -112,5 +116,19 @@ export default {
   .bg-image-container {
     padding: 100px 200px 50px 0;
   }
+}
+
+.fade-enter-active {
+  transition: all 0.8s ease;
+}
+
+.fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-enter,
+.fade-leave-to {
+  /* transform: translateX(10px); */
+  opacity: 0;
 }
 </style>

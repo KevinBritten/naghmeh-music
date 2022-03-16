@@ -3,7 +3,9 @@
     <h2 v-show="$route.name !== 'home'">
       {{ $route.params.lang === "fr" ? $route.meta.frenchName : $route.name }}
     </h2>
-    <router-view />
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -65,7 +67,21 @@ h2::after {
   .view-display {
     padding: 60px 140px;
 
-    overflow: auto;
+    // overflow: auto;
   }
+}
+
+.fade-enter-active {
+  transition: all 0.8s ease;
+}
+
+.fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-enter,
+.fade-leave-to {
+  /* transform: translateX(10px); */
+  opacity: 0;
 }
 </style>
