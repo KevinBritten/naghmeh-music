@@ -53,6 +53,7 @@ export default {
   background-color: black;
   padding: 75px 0 100px;
   overflow: auto;
+  z-index: 10;
   &--open {
     display: flex;
   }
