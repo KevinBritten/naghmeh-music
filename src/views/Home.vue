@@ -85,6 +85,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-left: 40%;
     img {
       width: 70%;
       margin-bottom: 50px;
@@ -111,10 +112,11 @@ p {
 }
 @include atDesktop {
   .home {
-    padding: 50px 20px 100px;
+    padding: 60px 20px 100px;
     &__title-container {
       img {
-        width: 600px;
+        width: 50%;
+        max-width: 600px;
       }
     }
   }

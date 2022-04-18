@@ -1,7 +1,7 @@
 :root {
   --c-dark-blue: #010122;
   --c-footer-bg: #4c4d64;
-  --c-page-background: rgba(166, 166, 166, 0.9);
+  --c-page-background: rgba(166, 166, 166, 1);
   --c-grey: rgb(206, 200, 200);
   --c-error: rgb(220, 53, 69);
   --c-success: #28a745;
