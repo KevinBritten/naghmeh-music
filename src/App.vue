@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="bg-image-container">
-      <img src="./assets/bg-photo-main.jpg" />
+      <img src="./assets/bg-photo-desktop.jpg" />
     </div>
     <site-menu
       :menu-is-open="menuIsOpen"
@@ -82,15 +82,16 @@ export default {
   left: 0;
   z-index: -10;
   width: 100%;
-  background-color: var(--c-dark-blue);
+  // background-color: var(--c-dark-blue);
   & img {
     z-index: -10;
-    width: 400px;
-    max-width: 100%;
+    // width: 400px;
+    // max-width: 100%;
     height: 100%;
-    object-fit: contain;
-    margin-left: auto;
-    display: block;
+    width: 100%;
+    object-fit: cover;
+    // margin-left: auto;
+    // display: block;
     object-position: bottom;
   }
 }
@@ -112,11 +113,11 @@ export default {
   position: relative;
 }
 
-@include atDesktop {
-  .bg-image-container {
-    padding: 100px 200px 50px 0;
-  }
-}
+// @include atDesktop {
+//   .bg-image-container {
+//     padding: 100px 200px 50px 0;
+//   }
+// }
 
 .fade-enter-active {
   transition: all 0.8s ease;
