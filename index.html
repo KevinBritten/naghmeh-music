@@ -1,97 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/src/assets/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/src/assets/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/src/assets/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/src/assets/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/src/assets/favicons/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>naghmeh-music</title>
     <style>
       #page-load-overlay {
         background-color: white;
-        position:fixed;
+        position: fixed;
         top: 0;
         right: 0;
         left: 0;
-        bottom:0;
-        z-index:100;
-        transition: opacity .5s
+        bottom: 0;
+        z-index: 100;
+        transition: opacity 0.5s;
       }
       .page-load-animation {
         position: absolute;
-      bottom: 50%;
-      right: 50%;
-      transform: translateX(50%);
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      background-color: #9880ff;
-      color: #9880ff;
-      animation: pageLoadAnimation 1s infinite linear alternate;
-      animation-delay: 0.5s;
+        bottom: 50%;
+        right: 50%;
+        transform: translateX(50%);
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #9880ff;
+        color: #9880ff;
+        animation: pageLoadAnimation 1s infinite linear alternate;
+        animation-delay: 0.5s;
       }
       .page-load-animation::before,
-.page-load-animation::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0;
-}
-.page-load-animation::before {
-  left: -15px;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #9880ff;
-  color: #9880ff;
-  animation: pageLoadAnimation 1s infinite alternate;
-  animation-delay: 0s;
-}
+      .page-load-animation::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+      }
+      .page-load-animation::before {
+        left: -15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #9880ff;
+        color: #9880ff;
+        animation: pageLoadAnimation 1s infinite alternate;
+        animation-delay: 0s;
+      }
 
-.page-load-animation::after {
-  left: 15px;
-  width: 10px;
-  height: 10px;
-  border-radius: 5px;
-  background-color: #9880ff;
-  color: #9880ff;
-  animation: pageLoadAnimation 1s infinite alternate;
-  animation-delay: 1s;
-}
-@keyframes pageLoadAnimation {
-  0% {
-    background-color: #9880ff;
-  }
-  50%,
-  100% {
-    background-color: #ebe6ff;
-  }
-}
+      .page-load-animation::after {
+        left: 15px;
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: #9880ff;
+        color: #9880ff;
+        animation: pageLoadAnimation 1s infinite alternate;
+        animation-delay: 1s;
+      }
+      @keyframes pageLoadAnimation {
+        0% {
+          background-color: #9880ff;
+        }
+        50%,
+        100% {
+          background-color: #ebe6ff;
+        }
+      }
     </style>
-    
-    <script>const removeLoadingOverlay = function(){document.getElementById('page-load-overlay').style.opacity = 0
-    const removeOverlay = function(){
-    document.getElementById('page-load-overlay').remove()}
- setTimeout(removeOverlay, 500)
-    }
-  
-    
+
+    <script>
+      const removeLoadingOverlay = function() {
+        document.getElementById("page-load-overlay").style.opacity = 0;
+        const removeOverlay = function() {
+          document.getElementById("page-load-overlay").remove();
+        };
+        setTimeout(removeOverlay, 500);
+      };
     </script>
   </head>
-  <body onload="removeLoadingOverlay()"> 
+  <body onload="removeLoadingOverlay()">
     <div id="page-load-overlay">
-       <div class="page-load-animation"></div>
-  </div>
+      <div class="page-load-animation"></div>
+    </div>
     <div id="app"></div>
     <script src="/dist/build.js"></script>
     <script>
-      function debounce(a,b,c){var d;return function(){var e=this,f=arguments;clearTimeout(d),d=setTimeout(function(){d=null,c||a.apply(e,f)},b),c&&!d&&a.apply(e,f)}}
+      function debounce(a, b, c) {
+        var d;
+        return function() {
+          var e = this,
+            f = arguments;
+          clearTimeout(d),
+            (d = setTimeout(function() {
+              (d = null), c || a.apply(e, f);
+            }, b)),
+            c && !d && a.apply(e, f);
+        };
+      }
 
       const setAppDimentions = debounce(() => {
-      document.body.style.width = `${window.innerWidth}px`
-      document.body.style.height = `${window.innerHeight}px`
-    },150)
-    setAppDimentions()
-    window.addEventListener("resize", setAppDimentions)
-    
+        document.body.style.width = `${window.innerWidth}px`;
+        document.body.style.height = `${window.innerHeight}px`;
+      }, 150);
+      setAppDimentions();
+      window.addEventListener("resize", setAppDimentions);
     </script>
   </body>
 </html>

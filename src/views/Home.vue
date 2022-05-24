@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__title-container">
-      <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
+      <img src="../assets/hero-title_2.svg" alt="Naghmeh Shafiei" />
       <!-- <p>{{ tagline }}</p> -->
     </div>
     <div class="home__buttons-container">
