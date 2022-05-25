@@ -87,15 +87,16 @@ export default {
 
   & img {
     z-index: -10;
-    // width: 400px;
-    // max-width: 100%;
     height: 100%;
-    // max-height: 500px;
     width: 100%;
     object-fit: contain;
+<<<<<<< HEAD
     // margin-left: auto;
     // display: block;
     object-position: -10% 100%;
+=======
+    object-position: bottom;
+>>>>>>> main
   }
 }
 .center-content {
