@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="home__title-container">
-      <img src="../assets/hero-title_2.svg" alt="Naghmeh Shafiei" />
+      <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
       <!-- <p>{{ tagline }}</p> -->
     </div>
     <div class="home__buttons-container">
@@ -85,10 +85,11 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 40%;
+    padding-left: 20%;
     img {
       width: 70%;
       margin-bottom: 50px;
+      max-width: 450px;
     }
     p {
       align-self: flex-start;
