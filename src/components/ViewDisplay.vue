@@ -1,5 +1,5 @@
 <template>
-  <div class="view-display" @scroll="checkScrollDirection">
+  <div class="view-display" @scroll="hideFooterOnScroll">
     <h2 v-show="$route.name !== 'home'">
       {{ $route.params.lang === "fr" ? $route.meta.frenchName : $route.name }}
     </h2>
@@ -16,16 +16,19 @@ export default {
   },
 
   methods: {
-    checkScrollDirection(f) {
-      let hideFooter = false;
-      var scrollTop = f.target.scrollTop;
-      if (scrollTop > this.lastScrollPosition && scrollTop >= 10) {
-        hideFooter = true;
-      } else {
-        hideFooter = false;
+    hideFooterOnScroll(f) {
+      //don't hide footer on desktop
+      if (window.innerWidth < 1000) {
+        let hideFooter = false;
+        var scrollTop = f.target.scrollTop;
+        if (scrollTop > this.lastScrollPosition && scrollTop >= 10) {
+          hideFooter = true;
+        } else {
+          hideFooter = false;
+        }
+        this.$emit("hideFooter", hideFooter);
+        this.lastScrollPosition = scrollTop;
       }
-      this.$emit("hideFooter", hideFooter);
-      this.lastScrollPosition = scrollTop;
     },
   },
 };
