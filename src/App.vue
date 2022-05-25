@@ -90,13 +90,9 @@ export default {
     height: 100%;
     width: 100%;
     object-fit: contain;
-<<<<<<< HEAD
     // margin-left: auto;
     // display: block;
     object-position: -10% 100%;
-=======
-    object-position: bottom;
->>>>>>> main
   }
 }
 .center-content {
