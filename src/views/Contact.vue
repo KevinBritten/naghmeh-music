@@ -2,15 +2,6 @@
   <div>
     <p>{{ contactMessage[$route.params.lang] }} {{ email }}</p>
     <newsletter-signup></newsletter-signup>
-    <!-- <form>
-      <label for="name">Name</label>
-      <input v-model="formData.name" />
-      <label for="email">Email</label>
-      <input v-model="formData.email" />
-      <label for="message">Message</label>
-      <textarea v-model="formData.message"></textarea>
-      <button type="button" v-on:click="netlifyFunction">SUBMIT</button>
-    </form> -->
   </div>
 </template>
 
@@ -27,8 +18,8 @@ export default {
       phoneNumber: "",
       formData: { name: "", email: "", message: "" },
       contactMessage: {
-        fr: "Pour toute demande, veuillez contacter Naghmeh au",
-        en: "For all inquiries please contact Naghmeh at",
+        fr: "Pour toute demande de réservation, contactez nous au",
+        en: "For all inquiries please contact us at",
       },
     };
   },

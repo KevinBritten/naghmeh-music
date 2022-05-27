@@ -20,7 +20,7 @@ export const routes = [
     path: "/about/:lang?",
     name: "about",
     component: About,
-    meta: { frenchName: "a propos" }
+    meta: { frenchName: "à propos" }
   },
   {
     path: "/music/:lang?",
@@ -32,13 +32,13 @@ export const routes = [
     path: "/merch/:lang?",
     name: "merch",
     component: Merch,
-    meta: { frenchName: "merch" }
+    meta: { frenchName: "marchandise" }
   },
   {
     path: "/videos/:lang?",
     name: "videos",
     component: Videos,
-    meta: { frenchName: "videos" }
+    meta: { frenchName: "vidéos" }
   },
   {
     path: "/photos/:lang?",
@@ -62,6 +62,6 @@ export const routes = [
     path: "/press/:lang?",
     name: "press",
     component: Press,
-    meta: { frenchName: "presse" }
+    meta: { frenchName: "médias" }
   }
 ];
