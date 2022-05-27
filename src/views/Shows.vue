@@ -1,12 +1,17 @@
 <template>
   <div class="shows">
     <h3>Upcoming Shows</h3>
-    <ShowItem
-      v-for="show in upcomingShowsSorted"
-      :key="show.name"
-      :show="show"
-      :upcoming="true"
-    />
+    <div v-if="upcomingShowsSorted.length > 0">
+      <ShowItem
+        v-for="show in upcomingShowsSorted"
+        :key="show.name"
+        :show="show"
+        :upcoming="true"
+      />
+    </div>
+    <div class="shows__message-container" v-else>
+      <p>No upcoming shows.</p>
+    </div>
     <hr />
     <h3>Past Shows</h3>
     <ShowItem
@@ -104,5 +109,9 @@ export default {
 
 h3 {
   width: 100%;
+}
+
+.shows__message-container {
+  padding: 100px 0 40px;
 }
 </style>
