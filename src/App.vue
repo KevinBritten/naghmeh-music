@@ -1,7 +1,18 @@
 <template>
   <div id="app">
     <div class="bg-image-container">
-      <img src="./assets/bg-photo-desktop.jpg" />
+      <picture>
+        <source
+          media="(min-width:600px)"
+          srcset="./assets/bg-photo-tablet-portrait.jpg"
+        />
+        <!-- <source media="(min-width:900px)" srcset="./assets/bg-photo-tablet-landscape.jpg"> -->
+        <source
+          media="(min-width:1200px)"
+          srcset="./assets/bg-photo-desktop.jpg"
+        />
+        <img src="./assets/bg-photo-mobile.jpg" alt="Naghmeh with a guitar" />
+      </picture>
     </div>
     <site-menu
       :menu-is-open="menuIsOpen"
@@ -79,7 +90,7 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0px;
   left: 0;
   z-index: -10;
   width: 100%;
@@ -89,10 +100,11 @@ export default {
     z-index: -10;
     height: 100%;
     width: 100%;
-    object-fit: contain;
+    min-width: 100%;
+    object-fit: cover;
     // margin-left: auto;
     // display: block;
-    object-position: -10% 100%;
+    object-position: center 100%;
   }
 }
 .center-content {
@@ -129,7 +141,6 @@ export default {
     z-index: -10;
     width: 100%;
     background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
-
     & img {
       z-index: -10;
       // width: 400px;

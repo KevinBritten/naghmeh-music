@@ -2,7 +2,6 @@
   <div class="home">
     <div class="home__title-container">
       <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
-      <!-- <p>{{ tagline }}</p> -->
     </div>
     <div class="home__buttons-container">
       <router-link
@@ -85,9 +84,8 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 20%;
     img {
-      width: 70%;
+      width: 80%;
       margin-bottom: 50px;
       max-width: 450px;
     }
@@ -115,6 +113,8 @@ p {
   .home {
     padding: 60px 20px 100px;
     &__title-container {
+      padding-left: 20%;
+
       img {
         width: 50%;
         max-width: 600px;
