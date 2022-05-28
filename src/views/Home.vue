@@ -108,7 +108,28 @@ p {
   p {
     padding-left: 60px;
   }
+  .home {
+    padding: 100px 0;
+    &__title-container {
+      img {
+        max-width: 75%;
+        width: 75%;
+      }
+    }
+  }
 }
+
+@include atTabletLandscape {
+  .home {
+    padding: 40px 0;
+    &__title-container {
+      img {
+        max-width: 450px;
+      }
+    }
+  }
+}
+
 @include atDesktop {
   .home {
     padding: 60px 20px 100px;

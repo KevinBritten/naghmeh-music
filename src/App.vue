@@ -3,14 +3,18 @@
     <div class="bg-image-container">
       <picture>
         <source
-          media="(min-width:600px)"
-          srcset="./assets/bg-photo-tablet-portrait.jpg"
-        />
-        <!-- <source media="(min-width:900px)" srcset="./assets/bg-photo-tablet-landscape.jpg"> -->
-        <source
           media="(min-width:1200px)"
           srcset="./assets/bg-photo-desktop.jpg"
         />
+        <source
+          media="(min-width:900px)"
+          srcset="./assets/bg-photo-tablet-landscape.jpg"
+        />
+        <source
+          media="(min-width:600px)"
+          srcset="./assets/bg-photo-tablet-portrait.jpg"
+        />
+
         <img src="./assets/bg-photo-mobile.jpg" alt="Naghmeh with a guitar" />
       </picture>
     </div>
