@@ -29,9 +29,6 @@
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
     />
-    <!-- <transition v-if="isHome" name="fade" mode="out-in">
-      <home></home>
-    </transition> -->
     <home v-if="isHome" />
     <transition v-else name="fade" mode="out-in">
       <view-display @hideFooter="hideShowFooter"> </view-display
@@ -106,8 +103,7 @@ export default {
     width: 100%;
     min-width: 100%;
     object-fit: cover;
-    // margin-left: auto;
-    // display: block;
+
     object-position: center 100%;
   }
 }
@@ -147,14 +143,9 @@ export default {
     background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
     & img {
       z-index: -10;
-      // width: 400px;
-      // max-width: 100%;
       height: 100%;
-      // max-height: 500px;
       width: 100%;
       object-fit: contain;
-      // margin-left: auto;
-      // display: block;
       object-position: -10% 100%;
     }
   }
@@ -187,7 +178,6 @@ export default {
 
 .fade-enter,
 .fade-leave-to {
-  /* transform: translateX(10px); */
   opacity: 0;
 }
 </style>
