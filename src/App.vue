@@ -21,6 +21,7 @@
     <site-menu
       :menu-is-open="menuIsOpen"
       @close-menu="menuIsOpen = false"
+      @show-footer="hideShowFooter"
     ></site-menu>
     <div :class="{ '--menu-open': menuIsOpen }" class="header-logo-container">
       <header-logo @close-menu="menuIsOpen = false" />

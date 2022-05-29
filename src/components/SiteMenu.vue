@@ -1,6 +1,6 @@
 <template>
   <div class="site-menu" :class="{ 'site-menu--open': menuIsOpen }">
-    <div class="site-menu__link-container" @click="closeMenu">
+    <div class="site-menu__link-container" @click="resetMenuAndFooter">
       <div v-for="route in routes" :key="route.path">
         <router-link
           :to="{
@@ -33,8 +33,9 @@ export default {
     },
   },
   methods: {
-    closeMenu() {
+    resetMenuAndFooter() {
       this.$emit("close-menu");
+      this.$emit("show-footer", false);
     },
   },
 };
