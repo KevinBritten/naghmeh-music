@@ -30,7 +30,10 @@
       @toggle-menu="menuIsOpen = !menuIsOpen"
       :menu-is-open="menuIsOpen"
     />
-    <home v-if="isHome" />
+    <transition v-if="isHome" name="fade" mode="out-in">
+      <home />
+    </transition>
+
     <transition v-else name="fade" mode="out-in">
       <view-display @hideFooter="hideShowFooter"> </view-display
     ></transition>

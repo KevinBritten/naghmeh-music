@@ -1,6 +1,6 @@
 <template>
   <div class="view-display" @scroll="hideFooterOnScroll">
-    <h2 v-show="$route.name !== 'home'">
+    <h2>
       {{ $route.params.lang === "fr" ? $route.meta.frenchName : $route.name }}
     </h2>
     <transition name="fade" mode="out-in">
