@@ -1,23 +1,5 @@
 <template>
   <div id="app">
-    <div class="bg-image-container">
-      <picture>
-        <source
-          media="(min-width:1200px)"
-          srcset="./assets/bg-photo-desktop.jpg"
-        />
-        <source
-          media="(min-width:900px)"
-          srcset="./assets/bg-photo-tablet-landscape.jpg"
-        />
-        <source
-          media="(min-width:600px)"
-          srcset="./assets/bg-photo-tablet-portrait.jpg"
-        />
-
-        <img src="./assets/bg-photo-mobile.jpg" alt="Naghmeh with a guitar" />
-      </picture>
-    </div>
     <site-menu
       :menu-is-open="menuIsOpen"
       @close-menu="menuIsOpen = false"
@@ -87,30 +69,10 @@ export default {
 
 #app {
   height: 100%;
-  padding: 70px 0 0;
+  padding: 0px 0 0;
   overflow: hidden;
 }
 
-.bg-image-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0px;
-  left: 0;
-  z-index: -10;
-  width: 100%;
-  background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
-
-  & img {
-    z-index: -10;
-    height: 100%;
-    width: 100%;
-    min-width: 100%;
-    object-fit: cover;
-
-    object-position: center 100%;
-  }
-}
 .center-content {
   flex: 1 1 0;
   position: relative;
@@ -136,23 +98,6 @@ export default {
     overflow: hidden;
   }
 
-  .bg-image-container {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -10;
-    width: 100%;
-    background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
-    & img {
-      z-index: -10;
-      height: 100%;
-      width: 100%;
-      object-fit: contain;
-      object-position: -10% 100%;
-    }
-  }
   .center-content {
     flex: 1 1 0;
     position: relative;
@@ -173,11 +118,11 @@ export default {
 }
 
 .fade-enter-active {
-  transition: all 0.8s ease;
+  transition: all 0.4s ease;
 }
 
 .fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .fade-enter,

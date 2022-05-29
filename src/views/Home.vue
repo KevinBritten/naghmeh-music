@@ -1,5 +1,23 @@
 <template>
   <div class="home">
+    <div class="bg-image-container">
+      <picture>
+        <source
+          media="(min-width:1200px)"
+          srcset="../assets/bg-photo-desktop.jpg"
+        />
+        <source
+          media="(min-width:900px)"
+          srcset="../assets/bg-photo-tablet-landscape.jpg"
+        />
+        <source
+          media="(min-width:600px)"
+          srcset="../assets/bg-photo-tablet-portrait.jpg"
+        />
+
+        <img src="../assets/bg-photo-mobile.jpg" alt="Naghmeh with a guitar" />
+      </picture>
+    </div>
     <div class="home__title-container">
       <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
     </div>
@@ -77,7 +95,7 @@ button:hover {
   justify-content: space-between;
   height: 100%;
   color: white;
-  padding: 20px 0;
+  padding: 90px 0 20px;
 
   &__title-container {
     width: 100%;
@@ -104,6 +122,26 @@ p {
   max-width: 190px;
 }
 
+.bg-image-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+  z-index: -10;
+  width: 100%;
+  background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
+
+  & img {
+    z-index: -10;
+    height: 100%;
+    width: 100%;
+    min-width: 100%;
+    object-fit: cover;
+
+    object-position: center 100%;
+  }
+}
 @include atTabletPortrait {
   p {
     padding-left: 60px;
@@ -140,6 +178,23 @@ p {
         width: 50%;
         max-width: 600px;
       }
+    }
+  }
+  .bg-image-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -10;
+    width: 100%;
+    background: linear-gradient(106.35deg, #0c0b18 43.66%, #000000 56.4%);
+    & img {
+      z-index: -10;
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      object-position: -10% 100%;
     }
   }
 }

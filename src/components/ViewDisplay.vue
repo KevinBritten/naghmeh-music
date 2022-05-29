@@ -40,7 +40,7 @@ export default {
 .view-display {
   height: 100%;
   background-color: var(--c-page-background);
-  padding: 10px 10px;
+  padding: 80px 10px;
   overflow: scroll;
   text-align: center;
 }
@@ -62,7 +62,7 @@ h2::after {
 
 @include atTabletPortrait {
   .view-display {
-    padding: 20px 60px;
+    padding: 80px 60px;
   }
 }
 
@@ -75,11 +75,11 @@ h2::after {
 }
 
 .fade-enter-active {
-  transition: all 0.8s ease;
+  transition: all 0.4s ease;
 }
 
 .fade-leave-active {
-  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .fade-enter,
