@@ -1,5 +1,6 @@
 var path = require("path");
 var webpack = require("webpack");
+// const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   entry: "./src/main.js",
@@ -54,6 +55,14 @@ module.exports = {
       }
     ]
   },
+  // plugins: [
+  //   new CopyPlugin({
+  //     patterns: [
+  //       { from: "source", to: "dest" },
+  //       { from: "other", to: "public" }
+  //     ]})
+
+  // ],
   resolve: {
     alias: {
       vue$: "vue/dist/vue.esm.js"
