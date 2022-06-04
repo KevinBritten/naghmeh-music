@@ -60,7 +60,6 @@ export default {
       this.error = this.post = null;
       return sanity.fetch(query).then(
         (information) => {
-          console.log(this.$route.params.lang);
           const info =
             this.$route.params.lang === "fr" ? information[0] : information[1];
           return info;

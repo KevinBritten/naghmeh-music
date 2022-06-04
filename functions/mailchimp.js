@@ -7,7 +7,6 @@ const url = `https://${MC_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MC_AUDIENCE
 
 exports.handler = async function(event, context) {
   const email = event.queryStringParameters.email;
-  console.log("signing up with email: " + email);
   const data = {
     email_address: email,
     status: "subscribed"

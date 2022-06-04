@@ -18,7 +18,6 @@ const router = new VueRouter({
 
 //append language to url if none provided
 router.beforeEach((to, from, next) => {
-  console.log(to);
   if (to.params.lang === undefined) {
     next({ path: to.name + "/en" });
   } else next();

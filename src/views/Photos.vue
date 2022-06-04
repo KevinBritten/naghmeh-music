@@ -52,7 +52,6 @@ export default {
       );
     },
     openLightbox(imageIndex, albumIndex) {
-      console.log("sef");
       this.imageIndex = imageIndex;
       this.albumIndex = albumIndex;
       this.lightboxOpen = true;
