@@ -9,11 +9,6 @@ export default {
       type: "string"
     },
     {
-      name: "tagline",
-      title: "Tagline",
-      type: "string"
-    },
-    {
       name: "bio",
       title: "Bio",
       type: "array",
