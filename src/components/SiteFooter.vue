@@ -50,7 +50,7 @@ export default {
 @import ".././styles/mixins.scss";
 
 .site-footer {
-  position: absolute;
+  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
