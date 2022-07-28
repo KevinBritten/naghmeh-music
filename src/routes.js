@@ -29,10 +29,10 @@ export const routes = [
     meta: { frenchName: "musique" }
   },
   {
-    path: "/merch/:lang?",
-    name: "merch",
+    path: "/store/:lang?",
+    name: "store",
     component: Merch,
-    meta: { frenchName: "marchandise" }
+    meta: { frenchName: "boutique" }
   },
   {
     path: "/videos/:lang?",
