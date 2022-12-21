@@ -4,6 +4,7 @@
       <img
         class="header-logo"
         src="../assets/naghmeh-old-logo-temp-resized.png"
+        alt="Return to home"
     /></router-link>
   </div>
 </template>
