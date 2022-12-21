@@ -1,6 +1,64 @@
 var path = require("path");
 var webpack = require("webpack");
 const CopyPlugin = require("copy-webpack-plugin");
+const SitemapPlugin = require("sitemap-webpack-plugin").default;
+
+//for sitemap
+function createPaths() {
+  //routes copied form "src/routes.js"
+  const routes = [
+    { name: "/", meta: { frenchName: "/" } },
+    {
+      name: "home",
+      meta: { frenchName: "home" }
+    },
+    {
+      name: "about",
+      meta: { frenchName: "à propos" }
+    },
+    {
+      name: "music",
+      meta: { frenchName: "musique" }
+    },
+    {
+      name: "store",
+      meta: { frenchName: "boutique" }
+    },
+    {
+      name: "videos",
+      meta: { frenchName: "vidéos" }
+    },
+    {
+      name: "photos",
+      meta: { frenchName: "photos" }
+    },
+    {
+      name: "contact",
+      meta: { frenchName: "contact" }
+    },
+    {
+      name: "shows",
+      meta: { frenchName: "spectacles" }
+    },
+    {
+      name: "press",
+      meta: { frenchName: "médias" }
+    }
+  ];
+  const lastmod = new Date().toISOString().slice(0, 10);
+  const priority = 0.8;
+  const changefreq = "hourly";
+  const paths = routes.map(route => {
+    return {
+      path: route.name,
+      lastmod,
+      priority,
+      changefreq
+    };
+  });
+  return paths;
+}
+const paths = createPaths();
 
 module.exports = {
   entry: "./src/main.js",
@@ -55,7 +113,15 @@ module.exports = {
       }
     ]
   },
-  plugins: [new CopyPlugin([{ from: "./public", to: "public/" }])],
+  plugins: [
+    new CopyPlugin([{ from: "./public", to: "public/" }]),
+    new SitemapPlugin("https://www.naghmehasong.com", paths, {
+      filename: "sitemap.xml",
+      lastmod: true,
+      changefreq: "hourly",
+      priority: 0.8
+    })
+  ],
   resolve: {
     alias: {
       vue$: "vue/dist/vue.esm.js"
