@@ -8,32 +8,39 @@
         target="_blank"
         href="https://music.apple.com/ca/artist/naghmeh-and-the-southern-shores/1464957868"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--apple-music.svg" alt="Listen on Apple Music">
+          src="../assets/social-icons-edited/naghmeh-social-icon--apple-music.svg"
+          alt="Listen on Apple Music"
+      /></a>
       <a
         target="_blank"
         href="http://naghmehandthesouthernshores.bandcamp.com/album/naghmeh-and-the-southern-shores"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--bandcamp.svg" alt="Listen on Bandcamp"
+          src="../assets/social-icons-edited/naghmeh-social-icon--bandcamp.svg"
+          alt="Listen on Bandcamp"
       /></a>
       <a target="_blank" href="http://www.facebook.com/naghmehasong"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg" alt="Visit Facebook page"
+          src="../assets/social-icons-edited/naghmeh-social-icon--facebook.svg"
+          alt="Visit Facebook page"
       /></a>
-      <a target="_blank" href="http://instagram.com/naghmehasong" 
+      <a target="_blank" href="http://instagram.com/naghmehasong"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--instagram.svg" alt="Visit Instagram page"
+          src="../assets/social-icons-edited/naghmeh-social-icon--instagram.svg"
+          alt="Visit Instagram page"
       /></a>
       <a
         target="_blank"
         href="https://open.spotify.com/artist/0vBnUPIvZVYs1EIW5DyfCb?si=UXtdQ11eRxaeHPRQL0G4bQ"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg" alt="Listen on Spotify"
+          src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
+          alt="Listen on Spotify"
       /></a>
       <a
         target="_blank"
         href="https://www.youtube.com/channel/UCjeHotf4y_BFuspVrXFy3OQ"
         ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--youtube.svg" alt="Visit Youtube page"
+          src="../assets/social-icons-edited/naghmeh-social-icon--youtube.svg"
+          alt="Visit Youtube page"
       /></a>
     </div>
   </div>
@@ -41,7 +48,7 @@
 
 <script>
 export default {
-  props: ["menuIsOpen", "hideFooter"],
+  props: ["menuIsOpen", "hideFooter"]
 };
 </script>
 
