@@ -6,10 +6,22 @@
     <div class="site-footer__social-icons">
       <a
         target="_blank"
-        href="https://music.apple.com/ca/artist/naghmeh-and-the-southern-shores/1464957868"
+        href="https://music.apple.com/us/album/lose-yourself-to-dance-single/1708005821"
         ><img
           src="../assets/social-icons-edited/naghmeh-social-icon--apple-music.svg"
           alt="Listen on Apple Music"
+      /></a>
+      <a
+        target="_blank"
+        href="https://open.spotify.com/track/3QxPg8dixfnq8ENBoQJ66b?si=5bbaf4b90c9e4fa7"
+        ><img
+          src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
+          alt="Listen on Spotify"
+      /></a>
+      <a target="_blank" href="https://deezer.page.link/jmakE1rLbB3NLDyX8"
+        ><img
+          src="../assets/social-icons-edited/naghmeh-social-icon--deezer.svg"
+          alt="Listen on Deezer"
       /></a>
       <a
         target="_blank"
@@ -27,13 +39,6 @@
         ><img
           src="../assets/social-icons-edited/naghmeh-social-icon--instagram.svg"
           alt="Visit Instagram page"
-      /></a>
-      <a
-        target="_blank"
-        href="https://open.spotify.com/artist/0vBnUPIvZVYs1EIW5DyfCb?si=UXtdQ11eRxaeHPRQL0G4bQ"
-        ><img
-          src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
-          alt="Listen on Spotify"
       /></a>
       <a
         target="_blank"
