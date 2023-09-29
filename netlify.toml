@@ -1,5 +1,5 @@
 [build]
-command = "yarn build && mkdir build && cp index.html build && cp _redirects build && cp -r dist build/"
+command = "npm install --legacy-peer-deps && yarn build && mkdir build && cp index.html build && cp _redirects build && cp -r dist build/"
 
 # on windows the above command will not work as it uses cp. use npm run build then use the below command and copy dist manually to build/
 # command = "yarn build && mkdir build && copy index.html build && copy _redirects build"
