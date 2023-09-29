@@ -8,8 +8,10 @@
     >
       <BlockContent :blocks="getCurrentBlock(index)" />
       <img
+        v-if="images[index]"
         :alt="images[index].name"
-        :data-srcset="`${imageUrlFor(images[index].image).width(300)} 300w,
+        :data-srcset="
+          `${imageUrlFor(images[index].image).width(300)} 300w,
                     ${imageUrlFor(images[index].image).width(600)} 600w,
                     ${imageUrlFor(images[index].image).width(
                       800
@@ -23,7 +25,8 @@
                     ${imageUrlFor(images[index].image).width(
                       2000
                     )} 2000w,          
-           `"
+           `
+        "
         data-sizes="(min-width: 991px) 28vw, (min-width: 767px) 40vw, 100vw,"
         :data-src="`${imageUrlFor(images[index].image)}`"
         class="lazyload"
@@ -45,11 +48,11 @@ export default {
   data() {
     return {
       bio: [],
-      images: [],
+      images: []
     };
   },
   created() {
-    this.fetchData().then((payload) => {
+    this.fetchData().then(payload => {
       this.bio = payload.bio;
       this.images = payload.bioImages;
     });
@@ -59,12 +62,12 @@ export default {
     fetchData() {
       this.error = this.post = null;
       return sanity.fetch(query).then(
-        (information) => {
+        information => {
           const info =
             this.$route.params.lang === "fr" ? information[0] : information[1];
           return info;
         },
-        (error) => {
+        error => {
           this.error = error;
         }
       );
@@ -76,11 +79,11 @@ export default {
       let blocks = [];
       blocks.push(this.bio[index]);
       return blocks;
-    },
-  },
+    }
+  }
 };
 </script>
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 @import ".././styles/mixins.scss";
 
 p {
