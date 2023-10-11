@@ -22,10 +22,10 @@
       <img src="../assets/hero-title.webp" alt="Naghmeh Shafiei" />
     </div>
     <div class="home__buttons-container">
+      <p>New song 'Lose Yourself to Dance out now!'</p>
       <router-link
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
-        tag="button"
-        >{{ button.text }}</router-link
+        >Listen on Deezer</router-link
       >
     </div>
   </div>
@@ -71,20 +71,18 @@ export default {
 <style scoped lang="scss">
 @import ".././styles/mixins.scss";
 
-button {
+a {
   margin: auto;
   font-size: 1.5rem;
   text-transform: uppercase;
   padding: 5px 15px 7px;
   transition: background-color 150ms;
   border-radius: 5px;
-}
-button:active,
-button:hover {
-  border-radius: 5px;
-
-  background-color: var(--c-footer-bg);
+  display: block;
   color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 10px auto 0;
 }
 
 .home {
@@ -110,14 +108,23 @@ button:hover {
     }
   }
   &__buttons-container {
-    padding: 50px 0;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    justify-content: end;
+    padding-bottom: 50px;
+    a,
+    p {
+      font-family: "Bodoni Moda", serif;
+      color: white;
+      font-size: 1.5rem;
+      text-align: center;
+    }
   }
 }
 p {
-  padding-left: 20px;
-  max-width: 190px;
+  max-width: 290px;
+  margin: 0 auto;
 }
 
 .bg-image-container {
@@ -141,9 +148,6 @@ p {
   }
 }
 @include atTabletPortrait {
-  p {
-    padding-left: 60px;
-  }
   .home {
     padding: 100px 0;
     &__title-container {
