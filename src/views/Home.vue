@@ -104,7 +104,6 @@ button:hover {
     img {
       width: 80%;
       margin-bottom: 50px;
-      max-width: 450px;
     }
     p {
       align-self: flex-start;
