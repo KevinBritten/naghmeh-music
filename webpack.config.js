@@ -5,7 +5,7 @@ const SitemapPlugin = require("sitemap-webpack-plugin").default;
 
 //for sitemap
 function createPaths() {
-  //routes copied form "src/routes.js"
+  //routes copied from "src/routes.js"
   const routes = [
     { name: "/", meta: { frenchName: "/" } },
     {
@@ -96,7 +96,6 @@ module.exports = {
               "sass-loader?indentedSyntax"
             ]
           }
-          // other vue-loader options go here
         }
       },
       {
@@ -105,7 +104,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|webp)$/,
         loader: "file-loader",
         options: {
           name: "[name].[ext]?[hash]"

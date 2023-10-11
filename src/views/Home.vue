@@ -19,7 +19,7 @@
       </picture>
     </div>
     <div class="home__title-container">
-      <img src="../assets/hero-title.svg" alt="Naghmeh Shafiei" />
+      <img src="../assets/hero-title.webp" alt="Naghmeh Shafiei" />
     </div>
     <div class="home__buttons-container">
       <router-link
