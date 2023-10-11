@@ -25,6 +25,12 @@ export default {
       type: "string"
     },
     {
+      name: "callToAction",
+      title: "Call to Action",
+      type: "array",
+      of: [{ type: "block" }]
+    },
+    {
       name: "homepageButton",
       title: "Homepage Button",
       type: "object",

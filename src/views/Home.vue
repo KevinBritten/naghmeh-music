@@ -22,11 +22,10 @@
       <img src="../assets/hero-title.webp" alt="Naghmeh Shafiei" />
     </div>
     <div class="home__buttons-container">
-      <p>New song 'Lose Yourself to Dance out now!'</p>
       <router-link
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
-        >Listen on Deezer</router-link
-      >
+        ><BlockContent :blocks="callToAction"
+      /></router-link>
     </div>
   </div>
 </template>
@@ -34,19 +33,23 @@
 <script>
 import NewsletterSignup from "../components/NewsletterSignup.vue";
 import sanity from "../sanity";
+import BlockContent from "sanity-blocks-vue-component";
 
 const query = `*[_type == "information"]`;
 export default {
-  components: { NewsletterSignup },
+  components: { NewsletterSignup, BlockContent },
+
   data() {
     return {
-      tagline: "",
+      callToAction: [],
+      payload: null,
       button: {},
     };
   },
+
   created() {
     this.fetchData().then((payload) => {
-      this.tagline = payload.tagline;
+      this.callToAction = payload.callToAction;
       this.button = payload.homepageButton;
     });
   },
@@ -72,17 +75,13 @@ export default {
 @import ".././styles/mixins.scss";
 
 a {
-  margin: auto;
-  font-size: 1.5rem;
-  text-transform: uppercase;
+  margin: 0 auto;
+
   padding: 5px 15px 7px;
-  transition: background-color 150ms;
-  border-radius: 5px;
   display: block;
   color: white;
-  font-size: 1.5rem;
+  text-decoration: none;
   text-align: center;
-  margin: 10px auto 0;
 }
 
 .home {
@@ -113,6 +112,7 @@ a {
     flex-direction: column;
     justify-content: end;
     padding-bottom: 50px;
+
     a,
     p {
       font-family: "Bodoni Moda", serif;
@@ -123,8 +123,7 @@ a {
   }
 }
 p {
-  max-width: 290px;
-  margin: 0 auto;
+  margin: 5px auto;
 }
 
 .bg-image-container {
@@ -180,6 +179,9 @@ p {
         width: 50%;
         max-width: 600px;
       }
+    }
+    &__buttons-container {
+      padding-left: 20%;
     }
   }
   .bg-image-container {
