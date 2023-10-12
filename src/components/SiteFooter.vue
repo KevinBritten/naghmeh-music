@@ -23,9 +23,7 @@
           src="../assets/social-icons-edited/naghmeh-social-icon--deezer.svg"
           alt="Listen on Deezer"
       /></a>
-      <a
-        target="_blank"
-        href="http://naghmehandthesouthernshores.bandcamp.com/album/naghmeh-and-the-southern-shores"
+      <a target="_blank" href="https://naghmeh.bandcamp.com/"
         ><img
           src="../assets/social-icons-edited/naghmeh-social-icon--bandcamp.svg"
           alt="Listen on Bandcamp"
@@ -53,7 +51,7 @@
 
 <script>
 export default {
-  props: ["menuIsOpen", "hideFooter"]
+  props: ["menuIsOpen", "hideFooter"],
 };
 </script>
 
