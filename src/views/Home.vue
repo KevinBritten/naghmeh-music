@@ -4,28 +4,33 @@
       <picture>
         <source
           media="(min-width:1200px)"
-          srcset="../assets/bg-photo-desktop.jpg"
+          srcset="../assets/bg-photo-desktop.webp"
         />
         <source
           media="(min-width:900px)"
-          srcset="../assets/bg-photo-tablet-landscape.jpg"
+          srcset="../assets/bg-photo-tablet-landscape.webp"
         />
         <source
           media="(min-width:600px)"
-          srcset="../assets/bg-photo-tablet-portrait.jpg"
+          srcset="../assets/bg-photo-tablet-portrait.webp"
         />
 
-        <img src="../assets/bg-photo-mobile.jpg" alt="Naghmeh with a guitar" />
+        <img src="../assets/bg-photo-mobile.webp" alt="Naghmeh with a guitar" />
       </picture>
     </div>
     <div class="home__title-container">
       <img src="../assets/hero-title.webp" alt="Naghmeh Shafiei" />
     </div>
     <div class="home__buttons-container">
-      <router-link
+      <!-- <router-link
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
         ><BlockContent :blocks="callToAction"
-      /></router-link>
+      /></router-link> -->
+      <a href="https://youtu.be/VdmpltfImqw" target="_blank">
+        <button>
+          {{ $route.params.lang === "fr" ? "Visionnez Burn" : "Watch Burn" }}
+        </button>
+      </a>
     </div>
   </div>
 </template>
@@ -43,12 +48,12 @@ export default {
     return {
       callToAction: [],
       payload: null,
-      button: {},
+      button: {}
     };
   },
 
   created() {
-    this.fetchData().then((payload) => {
+    this.fetchData().then(payload => {
       this.callToAction = payload.callToAction;
       this.button = payload.homepageButton;
     });
@@ -57,17 +62,17 @@ export default {
     fetchData() {
       this.error = this.post = null;
       return sanity.fetch(query).then(
-        (information) => {
+        information => {
           const info =
             this.$route.params.lang === "fr" ? information[0] : information[1];
           return info;
         },
-        (error) => {
+        error => {
           this.error = error;
         }
       );
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -111,14 +116,35 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: end;
-    padding-bottom: 50px;
+    padding-bottom: 150px;
 
     a,
-    p {
+    p,
+    button {
       font-family: "Bodoni Moda", serif;
       color: white;
       font-size: 1.5rem;
       text-align: center;
+    }
+    a {
+      padding: 0;
+    }
+    button {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 2px solid white;
+      border-radius: 5px; /* You can adjust the border radius to control the amount of rounding */
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      margin: 0;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+      }
     }
   }
 }
@@ -173,7 +199,7 @@ p {
   .home {
     padding: 60px 20px 100px;
     &__title-container {
-      padding-left: 20%;
+      // padding-left: 20%;
 
       img {
         width: 50%;
@@ -181,7 +207,7 @@ p {
       }
     }
     &__buttons-container {
-      padding-left: 20%;
+      // padding-left: 20%;
     }
   }
   .bg-image-container {
@@ -197,8 +223,8 @@ p {
       z-index: -10;
       height: 100%;
       width: 100%;
-      object-fit: contain;
-      object-position: -10% 100%;
+      object-fit: cover;
+      object-position: center;
     }
   }
 }

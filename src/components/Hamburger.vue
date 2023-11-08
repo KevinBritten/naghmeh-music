@@ -13,8 +13,8 @@ export default {
   methods: {
     toggleMenu() {
       this.$emit("toggle-menu");
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -35,7 +35,8 @@ export default {
   width: 35px;
   height: 2px;
   right: 0;
-  background: var(--c-grey);
+  /* background: var(--c-grey); */
+  background: white;
   border: 2px solid var(--c-grey);
   border-radius: 2px;
   border-top: none;
