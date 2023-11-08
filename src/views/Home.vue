@@ -132,7 +132,7 @@ a {
     button {
       background-color: rgba(0, 0, 0, 0.5);
       border: 2px solid white;
-      border-radius: 5px; /* You can adjust the border radius to control the amount of rounding */
+      border-radius: 5px;
       color: white;
       padding: 10px 20px;
       text-align: center;
