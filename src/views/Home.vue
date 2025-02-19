@@ -26,9 +26,25 @@
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
         ><BlockContent :blocks="callToAction"
       /></router-link> -->
-      <a href="https://youtu.be/VdmpltfImqw" target="_blank">
+      <p style="margin-bottom:20px">
+        <span style="font-size:2rem">
+          {{
+            $route.params.lang === "fr" ? "DISPONIBLE MAINTENANT" : "OUT NOW"
+          }}</span
+        >
+        <br />
+        The Situation
+      </p>
+      <a
+        href="https://naghmeh.bandcamp.com/track/the-situation"
+        target="_blank"
+      >
         <button>
-          {{ $route.params.lang === "fr" ? "Visionnez Burn" : "Watch Burn" }}
+          {{
+            $route.params.lang === "fr"
+              ? "Écoutez sur Bandcamp"
+              : "Listen on Bandcamp"
+          }}
         </button>
       </a>
     </div>
@@ -105,7 +121,7 @@ a {
     align-items: center;
     img {
       width: 80%;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     p {
       align-self: flex-start;
@@ -119,11 +135,16 @@ a {
     padding-bottom: 150px;
 
     a,
-    p,
     button {
       font-family: "Bodoni Moda", serif;
       color: white;
       font-size: 1.5rem;
+      text-align: center;
+    }
+
+    p {
+      font-size: 3.5rem;
+      line-height: unset;
       text-align: center;
     }
     a {
