@@ -36,7 +36,7 @@
         The Situation
       </p>
       <a
-        href="https://naghmeh.bandcamp.com/track/the-situation"
+        href="https://distrokid.com/hyperfollow/naghmeh/the-situation"
         target="_blank"
       >
         <button>
