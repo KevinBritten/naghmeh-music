@@ -35,16 +35,9 @@
         <br />
         The Situation
       </p>
-      <a
-        href="https://distrokid.com/hyperfollow/naghmeh/the-situation"
-        target="_blank"
-      >
+      <a href="https://hyperfollow.com/Naghmeh" target="_blank">
         <button>
-          {{
-            $route.params.lang === "fr"
-              ? "Écoutez sur Bandcamp"
-              : "Listen on Bandcamp"
-          }}
+          {{ $route.params.lang === "fr" ? "Écoutez Ici" : "Listen Here" }}
         </button>
       </a>
     </div>
