@@ -26,7 +26,7 @@
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
         ><BlockContent :blocks="callToAction"
       /></router-link> -->
-      <p style="margin-bottom:20px">
+      <p style="margin-bottom:21px">
         <span style="font-size:2rem">
           {{
             $route.params.lang === "fr" ? "DISPONIBLE MAINTENANT" : "OUT NOW"
