@@ -90,7 +90,7 @@ export default {
 
 @include atDesktop {
   #app {
-    height: 100%;
+    height: 100vh;
     padding: 70px 0 0;
     overflow: hidden;
   }
