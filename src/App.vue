@@ -27,8 +27,8 @@
 import Hamburger from "./components/Hamburger.vue";
 import HeaderLogo from "./components/HeaderLogo.vue";
 import SiteMenu from "./components/SiteMenu.vue";
-import ViewDisplay from "./components/ViewDisplay.vue";
 import Home from "./views/Home.vue";
+import ViewDisplay from "./components/ViewDisplay.vue";
 import SiteFooter from "./components/SiteFooter.vue";
 
 export default {
