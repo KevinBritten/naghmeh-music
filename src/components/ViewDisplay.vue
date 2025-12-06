@@ -1,0 +1,94 @@
+<template>
+  <div class="view-display" @scroll="hideFooterOnScroll">
+    <h2>
+      {{ $route.params.lang === "fr" ? $route.meta.frenchName : $route.name }}
+    </h2>
+    <router-view v-slot="{ Component }">
+      <transition name="fade" mode="out-in">
+        <component :is="Component" :key="$route.path" />
+      </transition>
+    </router-view>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return { lastScrollPosition: 0 };
+  },
+
+  methods: {
+    hideFooterOnScroll(f) {
+      //don't hide footer on desktop
+      if (window.innerWidth < 1000) {
+        let hideFooter = false;
+        var scrollTop = f.target.scrollTop;
+        if (scrollTop > this.lastScrollPosition && scrollTop >= 10) {
+          hideFooter = true;
+        } else {
+          hideFooter = false;
+        }
+        this.$emit("hideFooter", hideFooter);
+        this.lastScrollPosition = scrollTop;
+      }
+    },
+  },
+};
+</script>
+
+<style lang='scss' scoped>
+@use ".././styles/mixins.scss" as *;
+
+.view-display {
+  min-height: 100vh;
+  height: 100%;
+  background-color: var(--c-page-background);
+  padding: 80px 10px;
+  overflow: scroll;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h2::before,
+h2::after {
+  content: "";
+  height: 0.4rem;
+  width: 0.4rem;
+  margin: 0 0.5rem 0.3rem;
+  background-color: black;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@include atTabletPortrait {
+  .view-display {
+    padding: 80px 60px;
+  }
+}
+
+@include atDesktop {
+  .view-display {
+    padding: 60px 140px;
+
+    // overflow: auto;
+  }
+}
+
+.fade-enter-active {
+  transition: all 0.4s ease;
+}
+
+.fade-leave-active {
+  transition: all 0.4s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  /* transform: translateX(10px); */
+  opacity: 0;
+}
+</style>
+
