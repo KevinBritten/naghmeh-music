@@ -18,7 +18,7 @@
           src="../assets/social-icons-edited/naghmeh-social-icon--spotify--dark.svg"
           alt="Listen on Spotify"
       /></a>
-      <a target="_blank" href="https://link.deezer.com/s/31MCdUYPriKihEaB1QiV3"
+      <a target="_blank" href="https://link.deezer.com/s/34Ai546TPU7cJXH9jt3E0"
         ><img
           src="../assets/social-icons-edited/naghmeh-social-icon--deezer.svg"
           alt="Listen on Deezer"
@@ -105,4 +105,3 @@ export default {
   }
 }
 </style>
-
