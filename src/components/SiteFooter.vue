@@ -4,6 +4,11 @@
     :class="{ '--menu-open': menuIsOpen, 'site-footer--hide': hideFooter }"
   >
     <div class="site-footer__social-icons">
+      <a target="_blank" href="https://tidal.com/artist/42162155"
+        ><img
+          src="../assets/social-icons-edited/naghmeh-social-icon--tidal.svg"
+          alt="Listen on Apple Music"
+      /></a>
       <a
         target="_blank"
         href="https://music.apple.com/us/artist/naghmeh/1707472326"
