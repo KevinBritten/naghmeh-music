@@ -5,19 +5,19 @@ const MC_AUDIENCE_ID = process.env.MC_AUDIENCE_ID;
 
 const url = `https://${MC_DATA_CENTER}.api.mailchimp.com/3.0/lists/${MC_AUDIENCE_ID}/members`;
 
-exports.handler = async function(event, context) {
+exports.handler = async function (event, context) {
   const email = event.queryStringParameters.email;
   const data = {
     email_address: email,
-    status: "subscribed"
+    status: "subscribed",
   };
 
   const base64ApiKey = Buffer.from(`anystring:${MC_API_KEY}`).toString(
-    "base64"
+    "base64",
   );
   const headers = {
     "Content-Type": "application/json",
-    Authorization: `Basic ${base64ApiKey}`
+    Authorization: `Basic ${base64ApiKey}`,
   };
   let statusCode;
   const list = await axios
@@ -29,6 +29,6 @@ exports.handler = async function(event, context) {
       statusCode = 400;
     });
   return {
-    statusCode
+    statusCode,
   };
 };
