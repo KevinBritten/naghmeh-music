@@ -26,16 +26,19 @@
         :to="{ name: button.target, params: { lang: this.$route.params.lang } }"
         ><PortableText :value="callToAction"
       /></router-link> -->
-      <p style="margin-bottom:21px">
-        <span style="font-size:2rem">
+      <p style="margin-bottom: 21px">
+        <span style="font-size: 2rem">
           {{
             $route.params.lang === "fr" ? "DISPONIBLE MAINTENANT" : "OUT NOW"
           }}</span
         >
         <br />
-        Étoile filante
+        Live at Barnhouse
       </p>
-      <a href="https://hyperfollow.com/Naghmeh" target="_blank">
+      <a
+        href="https://distrokid.com/hyperfollow/naghmeh/live-at-barnhouse"
+        target="_blank"
+      >
         <button>
           {{ $route.params.lang === "fr" ? "Écoutez Ici" : "Listen Here" }}
         </button>
@@ -57,12 +60,12 @@ export default {
     return {
       callToAction: [],
       payload: null,
-      button: {}
+      button: {},
     };
   },
 
   created() {
-    this.fetchData().then(payload => {
+    this.fetchData().then((payload) => {
       this.callToAction = payload.callToAction;
       this.button = payload.homepageButton;
     });
@@ -71,17 +74,17 @@ export default {
     fetchData() {
       this.error = this.post = null;
       return sanity.fetch(query).then(
-        information => {
+        (information) => {
           const info =
             this.$route.params.lang === "fr" ? information[0] : information[1];
           return info;
         },
-        error => {
+        (error) => {
           this.error = error;
-        }
+        },
       );
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -244,4 +247,3 @@ p {
   }
 }
 </style>
-
